@@ -24,6 +24,20 @@
 
 # Bravada RDTI Filing Project - FY25
 
+## 🌐 Hosted Application
+
+| Resource | URL |
+|----------|-----|
+| **Live Website** | http://3.25.175.69 |
+| **RDTI Application** | http://3.25.175.69/rdti-fy25-application.html |
+| **GitHub Repository** | https://github.com/vastdreams/bravada-rdti-fy25 |
+
+### Branches
+- `main` - Production (deployed to EC2)
+- `develop` - Development
+
+---
+
 ## 🟢 FY25 FILING STATUS: DOCUMENTATION COMPLETE
 
 | Document | Status | Location |
