@@ -134,49 +134,19 @@
         .evidence-list { list-style: none; }
         .evidence-list li { padding: 0.5rem 0; }
         .evidence-list li:before { content: "✓ "; color: var(--accent); font-weight: bold; }
-        .doc-accordion {
-            margin: 0.5rem 0;
-        }
-        .doc-accordion-header {
-            display: flex;
-            align-items: center;
-            padding: 0.75rem 1rem;
-            background: var(--light);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-weight: 500;
-        }
-        .doc-accordion-header:hover {
-            background: var(--primary);
+        .download-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--accent);
             color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.2s;
         }
-        .doc-accordion-header .icon {
-            margin-right: 0.75rem;
-            transition: transform 0.2s;
-        }
-        .doc-accordion-header.open .icon {
-            transform: rotate(90deg);
-        }
-        .doc-accordion-content {
-            display: none;
-            background: #fff;
-            border: 1px solid var(--border);
-            border-top: none;
-            border-radius: 0 0 8px 8px;
-            padding: 1rem;
-            max-height: 600px;
-            overflow-y: auto;
-            font-size: 0.9rem;
-        }
-        .doc-accordion-content.open {
-            display: block;
-        }
-        .doc-accordion-content pre {
-            white-space: pre-wrap;
-            font-family: inherit;
-            margin: 0;
+        .download-btn:hover {
+            background: #2f855a;
+            transform: translateY(-1px);
         }
         .info-box {
             background: #ebf8ff;
@@ -906,127 +876,142 @@ Building BI dashboards, integrating outputs into billing workflows, and routine 
 
         <!-- DOCUMENTS SECTION -->
         <section id="documents" class="section">
-            <h2>📄 Document Files</h2>
-            <p>Click any document to view its full content:</p>
+            <h2>📄 Downloadable Files</h2>
+            <p>Click any file to download from S3:</p>
             
-            <h3>Filing Documents</h3>
-            <div class="doc-accordion">
-                <div class="doc-accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">▶</span> 📋 FY25-RDTI-Application-Content.md
-                </div>
-                <div class="doc-accordion-content">
-                    <p><strong>Location:</strong> 03-filing-documents/FY25-RDTI-Application-Content.md</p>
-                    <p>Complete application text with all portal fields including project objectives, records kept, plant and facilities, and beneficiary information.</p>
-                </div>
-            </div>
-            <div class="doc-accordion">
-                <div class="doc-accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">▶</span> 📋 FY25-Core-Activities-Complete.md
-                </div>
-                <div class="doc-accordion-content">
-                    <p><strong>Location:</strong> 03-filing-documents/FY25-Core-Activities-Complete.md</p>
-                    <p>Complete core activity descriptions including hypotheses, experiment design, evaluation methodology, conclusions, and new knowledge generated.</p>
-                </div>
-            </div>
+            <h3>📋 Filing Documents</h3>
+            <table>
+                <tr><th>File</th><th>Description</th><th>Download</th></tr>
+                <tr>
+                    <td>FY25-RDTI-Application-Content.md</td>
+                    <td>Complete application text with all portal fields</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/03-filing-documents/FY25-RDTI-Application-Content.md" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+                <tr>
+                    <td>FY25-Core-Activities-Complete.md</td>
+                    <td>Complete core activity descriptions with hypotheses & conclusions</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/03-filing-documents/FY25-Core-Activities-Complete.md" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+            </table>
 
-            <h3>Technical Documentation</h3>
-            <div class="doc-accordion">
-                <div class="doc-accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">▶</span> 🧠 dream-research-ai-foundations.md
-                </div>
-                <div class="doc-accordion-content">
-                    <p><strong>Location:</strong> 02-evidence/technical/dream-research-ai-foundations.md</p>
-                    <p>Foundational AI research from DREAM project including: Core research problem (context window limitation), Intelligent Context Network architecture, Highway metaphor for AI memory, Brain Layer with DeepSeek, Multi-agent orchestration patterns.</p>
-                </div>
-            </div>
-            <div class="doc-accordion">
-                <div class="doc-accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">▶</span> 📐 quotech-comprehensive-project-context.md
-                </div>
-                <div class="doc-accordion-content">
-                    <p><strong>Location:</strong> 02-evidence/technical/quotech-comprehensive-project-context.md</p>
-                    <p>Complete technical context including: Problem statement, 14 module specifications, Entity data model, Technology stack, Product roadmap, Success metrics.</p>
-                </div>
-            </div>
-            <div class="doc-accordion">
-                <div class="doc-accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">▶</span> 💻 gitlab-repository-evidence.md
-                </div>
-                <div class="doc-accordion-content">
-                    <p><strong>Location:</strong> 02-evidence/technical/gitlab-repository-evidence.md</p>
-                    <p>Code repository evidence: quotech-frontend (React 19, 100+ commits), quotech-backend (Python/Django), billing-frontend, 4 contributors, technology stack details.</p>
-                </div>
-            </div>
+            <h3>🧠 Technical Documentation</h3>
+            <table>
+                <tr><th>File</th><th>Description</th><th>Download</th></tr>
+                <tr>
+                    <td>dream-research-ai-foundations.md</td>
+                    <td>DREAM AI research - neuroplasticity, context networks, DeepSeek Brain</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/technical/dream-research-ai-foundations.md" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+                <tr>
+                    <td>quotech-comprehensive-project-context.md</td>
+                    <td>Complete technical context - 14 modules, data model, stack</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/technical/quotech-comprehensive-project-context.md" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+                <tr>
+                    <td>gitlab-repository-evidence.md</td>
+                    <td>Code repository evidence - commits, contributors, tech stack</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/technical/gitlab-repository-evidence.md" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+                <tr>
+                    <td>notion-research-documentation.md</td>
+                    <td>Notion workspace research documentation</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/technical/notion-research-documentation.md" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+            </table>
 
-            <h3>Research Notes</h3>
-            <div class="doc-accordion">
-                <div class="doc-accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">▶</span> 📓 FY25-Research-Journal.md
-                </div>
-                <div class="doc-accordion-content">
-                    <p><strong>Location:</strong> 02-evidence/research-notes/FY25-Research-Journal.md</p>
-                    <p>Weekly R&D activity log covering: Q1 Foundation (context nodes, embeddings), Q2 Optimization (latency, quote reading), Q3 Refinement (neuroplasticity, COT logging), Q4 Validation (cross-company testing, scale).</p>
-                </div>
-            </div>
-            <div class="doc-accordion">
-                <div class="doc-accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">▶</span> 🔍 FY25-Existing-Knowledge-Search.md
-                </div>
-                <div class="doc-accordion-content">
-                    <p><strong>Location:</strong> 02-evidence/research-notes/FY25-Existing-Knowledge-Search.md</p>
-                    <p>Comprehensive search documentation: Academic databases (IEEE, ACM, arXiv), Commercial solutions (Procore, Simpro, etc.), Patent searches, Expert consultations.</p>
-                </div>
-            </div>
+            <h3>📓 Research Notes</h3>
+            <table>
+                <tr><th>File</th><th>Description</th><th>Download</th></tr>
+                <tr>
+                    <td>FY25-Research-Journal.md</td>
+                    <td>Weekly R&D activity log - Q1-Q4 experiments & findings</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/research-notes/FY25-Research-Journal.md" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+                <tr>
+                    <td>FY25-Existing-Knowledge-Search.md</td>
+                    <td>Literature review, commercial analysis, expert consultations</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/research-notes/FY25-Existing-Knowledge-Search.md" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+            </table>
 
-            <h3>Financial Evidence</h3>
-            <div class="doc-accordion">
-                <div class="doc-accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">▶</span> 💰 xero-rdti-accounts-evidence.md
-                </div>
-                <div class="doc-accordion-content">
-                    <p><strong>Location:</strong> 02-evidence/financial/xero-rdti-accounts-evidence.md</p>
-                    <p>Chart of accounts verification, P&L figures, journal entry summary.</p>
-                </div>
-            </div>
-            <div class="doc-accordion">
-                <div class="doc-accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">▶</span> 📊 fy25-rdti-cost-summary.md
-                </div>
-                <div class="doc-accordion-content">
-                    <p><strong>Location:</strong> 02-evidence/financial/fy25-rdti-cost-summary.md</p>
-                    <p>R&D cost breakdown: Wages $520,412.60, Contracted Services $187,425.36, IT & Subscriptions $41,656.87, Rental $21,924.44.</p>
-                </div>
-            </div>
-            <div class="doc-accordion">
-                <div class="doc-accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">▶</span> ⏱️ timesheet-summary-fy25.md
-                </div>
-                <div class="doc-accordion-content">
-                    <p><strong>Location:</strong> 02-evidence/time-records/timesheet-summary-fy25.md</p>
-                    <p>Employee R&D time allocation summary with weekly breakdown and R&D percentages.</p>
-                </div>
-            </div>
+            <h3>💰 Financial Evidence</h3>
+            <table>
+                <tr><th>File</th><th>Description</th><th>Download</th></tr>
+                <tr>
+                    <td>xero-rdti-accounts-evidence.md</td>
+                    <td>Chart of accounts verification, P&L figures</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/financial/xero-rdti-accounts-evidence.md" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+                <tr>
+                    <td>fy25-rdti-cost-summary.md</td>
+                    <td>R&D cost breakdown by category</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/financial/fy25-rdti-cost-summary.md" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+                <tr>
+                    <td>timesheet-summary-fy25.md</td>
+                    <td>Employee R&D time allocation summary</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/time-records/timesheet-summary-fy25.md" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+            </table>
 
-            <h3>Evidence Index</h3>
-            <div class="doc-accordion">
-                <div class="doc-accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">▶</span> 📊 EVIDENCE-INDEX-FY25.md
-                </div>
-                <div class="doc-accordion-content">
-                    <p><strong>Location:</strong> 02-evidence/EVIDENCE-INDEX-FY25.md</p>
-                    <p>Master index of all evidence supporting FY25 RDTI application with cross-reference matrix.</p>
-                </div>
-            </div>
+            <h3>📊 Evidence Index</h3>
+            <table>
+                <tr><th>File</th><th>Description</th><th>Download</th></tr>
+                <tr>
+                    <td>EVIDENCE-INDEX-FY25.md</td>
+                    <td>Master index with cross-reference matrix</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/EVIDENCE-INDEX-FY25.md" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+            </table>
 
-            <h3>Previous Applications</h3>
-            <div class="doc-accordion">
-                <div class="doc-accordion-header" onclick="toggleAccordion(this)">
-                    <span class="icon">▶</span> 📄 Previous RDTI Filings Analysis
-                </div>
-                <div class="doc-accordion-content">
-                    <p><strong>Location:</strong> previous_applications/</p>
-                    <p>FY23 RDTI.pdf, FY24 RDTI.pdf - Demonstrating project continuity and progression from prior years.</p>
-                </div>
+            <h3>📄 Previous Applications</h3>
+            <table>
+                <tr><th>File</th><th>Description</th><th>Download</th></tr>
+                <tr>
+                    <td>FY23 RDTI.pdf</td>
+                    <td>FY23 RDTI Application - First year of project</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/previous_applications/FY23%20RDTI.pdf" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+                <tr>
+                    <td>FY24 RDTI.pdf</td>
+                    <td>FY24 RDTI Application - Second year, pivots documented</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/previous_applications/FY24%20RDTI.pdf" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+                <tr>
+                    <td>previous-rdti-filings-analysis.md</td>
+                    <td>Analysis of previous filings</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/04-supporting-materials/publications/previous-rdti-filings-analysis.md" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+            </table>
+
+            <h3>📚 Project Documentation</h3>
+            <table>
+                <tr><th>File</th><th>Description</th><th>Download</th></tr>
+                <tr>
+                    <td>quotech-ai-driven-labor-efficiency.md</td>
+                    <td>Main project documentation - 5 AI modules</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/01-project-documentation/quotech-ai-driven-labor-efficiency.md" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+                <tr>
+                    <td>compliance-tracker.md</td>
+                    <td>RDTI compliance tracking status</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/01-project-documentation/compliance-tracker.md" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+            </table>
+
+            <h3>📝 Whitepaper</h3>
+            <table>
+                <tr><th>File</th><th>Description</th><th>Download</th></tr>
+                <tr>
+                    <td>v1 Whitepaper Information DC M Quotech.pdf</td>
+                    <td>Complete Quotech whitepaper with technical details</td>
+                    <td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/v1%20Whitepaper%20Information%20DC%20M%20Quotech.pdf" class="download-btn" download>⬇️ Download</a></td>
+                </tr>
+            </table>
+
+            <div class="info-box" style="margin-top: 2rem;">
+                <strong>📂 Browse All Files:</strong> 
+                <a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/" target="_blank" style="color: var(--accent);">View S3 Bucket Contents</a>
             </div>
         </section>
     </div>
@@ -1052,22 +1037,6 @@ Building BI dashboards, integrating outputs into billing workflows, and routine 
             });
         }
 
-        function toggleAccordion(header) {
-            const content = header.nextElementSibling;
-            const isOpen = content.classList.contains('open');
-            
-            // Close all other accordions
-            document.querySelectorAll('.doc-accordion-content.open').forEach(el => {
-                el.classList.remove('open');
-                el.previousElementSibling.classList.remove('open');
-            });
-            
-            // Toggle this one
-            if (!isOpen) {
-                content.classList.add('open');
-                header.classList.add('open');
-            }
-        }
     </script>
 </body>
 </html>
