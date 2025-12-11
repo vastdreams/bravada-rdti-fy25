@@ -71,3 +71,4 @@ Thumbs.db
 # - Consider using encrypted storage for sensitive documents
 # - Use environment variables or secure vaults for any credentials
 .env.local
+bravada-rdti-key.pem
