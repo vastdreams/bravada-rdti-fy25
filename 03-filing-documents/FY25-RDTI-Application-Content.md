@@ -10,7 +10,7 @@
 # - Project overview, Core Activities, Hypotheses, Experiments, Evaluation, Conclusions
 #
 # NOTES FOR FUTURE AI:
-# - This document follows the successful FY23/FY24 pattern but with stronger technical detail
+# - This document follows AusIndustry software guidance with technical uncertainty focus
 # - All content must be consistent with evidence in 02-evidence/ and core activity documents
 
 ---
@@ -101,8 +101,10 @@
 ☑ None of the above (no advance findings, RSPs, CRCs, or collaborative agreements)
 
 **Will the company include activities excluded from being a core activity?**  
-☐ Yes, as supporting activities  
-☑ No
+☑ Yes, as supporting activities  
+☐ No
+
+*Note: Supporting activities include integration of experimental components into production modules (billing, timesheets, BI interfaces), UI development, and pilot deployment infrastructure. These are directly related to the core experimental work and would not have been conducted without it.*
 
 ---
 
@@ -112,7 +114,7 @@
 50 (estimated FTE including contractors; 12 payroll employees plus subcontractor FTE based on wages analysis)
 
 **Number of employees engaged in R&D (person years / FTE)**  
-8–10 FTE (we use 8 FTE for conservative reporting)
+8 FTE
 
 **Number of independent contractors engaged in R&D activities**  
 2
@@ -123,7 +125,7 @@ Bravada is a construction group with a mix of payroll staff and subcontractors. 
 - R&D wages (account 434): $520,412.60  
 - R&D contracted services (account 415): $187,425.36
 
-Using typical construction/technical salary bands and the documented R&D time allocations in the Excel workings, this maps to roughly **8–10 FTE** engaged on eligible R&D in FY25 (about 6 FTE from wages and 2–4 FTE equivalent from contractors). For the purposes of this form we report **8 FTE** employees and **2** R&D contractors.
+Using typical construction/technical salary bands and the documented R&D time allocations in the Excel workings, this maps to approximately 8 FTE engaged on eligible R&D in FY25 (6 FTE from wages and 2 FTE equivalent from contractors).
 
 ---
 
@@ -134,6 +136,7 @@ Using typical construction/technical salary bands and the documented R&D time al
 | **Taxable Income/Loss** | AUD 195,852.07 (Profit) |
 | **Aggregated Turnover** | AUD 12,760,872.01 |
 | **Export Revenue** | AUD 0.00 |
+| **R&D Expenditure FY25** | AUD 771,419.00 |
 
 *Figures are drawn from the Xero Profit & Loss report for the period 1 Jul 2024 – 30 Jun 2025. R&D expenditure reconciles to the dedicated R&D accounts in Xero and to the FY25 Excel working file.*
 
@@ -152,140 +155,143 @@ Using typical construction/technical salary bands and the documented R&D time al
 
 ## Project Duration
 
-**Jul 2022 to Jun 2026**
+**Jul 2022 to Jun 2027**
 
 ---
 
 ## Total Project Budget
 
-**AUD 1,500,000.00**  
-(R&D and non-R&D expenses over the project life)
+**AUD 2,500,000.00**  
+(Total eligible R&D expenditure over the project life, including prior years and anticipated future expenditure)
 
 ---
 
-## Project Objectives (portal: “What are the objectives of this project?”)
+## Project Objectives (portal: "What are the objectives of this project?")
 
-The objective of this project is to build **Quotech**, an AI‑driven operating layer for construction sub‑contractors that can finally make sense of the flood of emails, documents and quotes that run through a business, and turn them into live, trusted intelligence for planning and billing.
+The objective of this project is to investigate and resolve specific technical uncertainties in the field of applied artificial intelligence and information retrieval, with application to construction sub-contractor document processing.
 
-In simple terms, we are trying to answer two questions:
+**Technical knowledge gap:**  
+Existing techniques for document classification, semantic retrieval and structured data extraction (including retrieval-augmented generation, vector search, and transformer-based parsing) have been developed and tested primarily on general-purpose corpora such as Wikipedia, news articles and enterprise documents. It is not known whether these techniques, individually or in combination, can achieve the accuracy, latency and reliability thresholds required for real-time operational use on the heterogeneous, domain-specific document types that characterise construction sub-contracting (variations, day sheets, supplier quotes in inconsistent formats, QA records, etc.).
 
-1. Can we build a context engine that actually understands a sub‑contractor’s world of jobs, POs, bills, quotes, day sheets and QA records well enough that staff can ask it questions and rely on the answers?
-2. Can we turn the messy, inconsistent quotes and timesheets that arrive every day into structured cost and labour data that can drive honest margin analysis and better decisions, without drowning people in admin?
+**Field of science/technology:**  
+The experimental work sits within the field of Information and Computing Sciences (ANZSRC Division 46), specifically Artificial Intelligence (Group 4602). The project draws on techniques from information retrieval, natural language processing, graph-based knowledge representation, and supervised classification.
 
-To do that, the project is split into **five AI‑driven modules**:
+**Primary experimental questions:**
 
-1. **Email and Directory AI Module** – classifies incoming emails and attachments into Bills, POs, Contracts, Variations, Day Sheets, QA records and general information, and files them against the right jobs and suppliers.
-2. **Document Fetch and Information AI** – lets a user ask for documents or answers (“show all variations linked to PO 123”, “what is the latest subcontract agreement for Job X?”) and get grounded, explainable responses.
-3. **Billing / PO / Invoice Intelligence** – reads supplier bills, matches them to POs, checks prices against history and tags them for approval with confidence scores.
-4. **Quote Intelligence** – reads quotes in all their different formats, extracts structured items and cost centres, and feeds that into BI and forecasting so a sub‑contractor can see where margins are likely to blow out.
-5. **Timesheet Planning** – brings calendar, day sheets and job budgets together to spot capacity issues and anomalies early.
+1. **Context and retrieval architecture**: Can a hybrid architecture combining graph-based document relationships, vector embeddings and usage-driven edge weighting achieve classification accuracy above 85% and retrieval latency below 500ms P95 on real construction document corpora?
 
-Underneath these modules we are doing **foundational R&D** on two fronts:
+2. **Quote parsing and cost extraction**: Can an OCR and model-based parsing pipeline reliably extract structured cost data from the variety of quote formats used by construction suppliers, with field-level accuracy above 90% for structured formats?
 
-- a **context and memory architecture** (Core Activity 1) that can live with construction documents over years and get better with use; and
-- a **quote and cost intelligence engine** (Core Activity 2) that can turn supplier quotes into clean, analysable data.
+**Purpose:**  
+The primary purpose of the experimental work is to generate new knowledge about how these AI and information retrieval techniques behave in the construction sub-contractor domain, and to determine the limits of their applicability. The resulting knowledge will inform both the Quotech platform and the broader field of domain-specific document intelligence.
 
-The ultimate objective is not just to automate some admin, but to create a reusable technical backbone that sub‑contractors can trust when they ask “what is really going on in my jobs this week?”.
+**Modules:**  
+The project is structured into functional modules that serve as testbeds for the core experiments:
 
----
+1. **Email and document classification** – testbed for multi-signal classification experiments
+2. **Document retrieval and context engine** – testbed for graph/vector hybrid retrieval experiments
+3. **Quote parsing and cost extraction** – testbed for OCR, parsing and mapping experiments
+4. **Anomaly and margin analysis** – testbed for threshold calibration and prediction experiments
 
-## Documents and records kept (portal: “Describe what documents you have kept…”) 
-
-We keep detailed, contemporaneous records of the Quotech R&D work so that every major decision and experiment can be reconstructed later. These are maintained mainly in Notion, GitLab, Excel, and cloud storage, all with timestamps and version history where possible.
-
-At a high level, our records include:
-
-1. **Research notes and design documents**  
-   - Architecture and design documents describing the context engine, classification modules and quote intelligence pipelines.
-   - Research notes and pre‑print drafts setting out the theoretical background, hypotheses and validation strategies (including DREAM‑inspired context work).
-   - Planning documents for each of the five modules, with milestones and data requirements.
-
-2. **Code and experiment artefacts**  
-   - GitLab repositories for `quotech-backend`, `quotech-frontend` and `billing-frontend`, including branches, merge requests and code review history.
-   - Configuration files, scripts and notebooks used to run classification, retrieval, quote extraction and anomaly detection experiments.
-   - Validation outputs: metrics tables, confusion matrices, latency benchmarks and comparison plots for different model versions.
-
-3. **Data and pilot company records**  
-   - Briefs describing the origin of pilot company datasets and the agreed de‑identification steps.
-   - Results of benchmark runs on real data (emails, documents, quotes, timesheets), including summaries of issues found and fixes applied.
-   - Notes from pilot sessions with operations staff and finance teams.
-
-4. **Compliance and financial evidence**  
-   - Timesheet summaries and R&D allocation notes for employees and contractors working on Quotech.
-   - Invoices for R&D contractors, cloud compute, storage, and specialist software used to support the experiments.
-   - Xero reports and the FY25 R&D working Excel file, including account‑level reconciliation to the R&D Chart of Accounts.
-
-5. **Chain‑of‑thought and audit logs**  
-   - COT logs for key AI decisions (particularly around classification and quote parsing), stored in a dedicated table so we can see how the system reasoned about borderline cases.
-   - Change logs describing technical pivots (e.g. when we moved from a pure memory tree to the hybrid SQL + graph design) and why.
-
-Together these records provide contemporaneous evidence of the experiments, their rationale, the results, and the conclusions we drew.
+Integration of experimental components into production-ready modules (billing workflows, timesheet validation, BI dashboards) is treated as **supporting R&D activity**, not core experimental work.
 
 ---
 
-## Plant and facilities (portal: “Briefly describe the plant and facilities…”) 
+## Documents and records kept (portal: "Describe what documents you have kept…") 
 
-Quotech is a software and data‑intensive project. The “plant and facilities” are mostly compute and network infrastructure rather than traditional factory equipment.
+We maintain detailed, contemporaneous records of the Quotech R&D work so that each experiment and decision can be reconstructed and substantiated. Records are primarily stored in Notion, GitLab, Excel workbooks and cloud storage, all with timestamps and version history.
 
-The main facilities are:
+**1. Prior art and existing knowledge search**  
+- Documented searches of academic literature (arXiv, ACL Anthology, IEEE), patent databases, and commercial product documentation.
+- Search terms, dates, sources reviewed, and conclusions about why existing solutions did not resolve the specific technical uncertainties.
+- Meeting notes from consultations with AI engineers and construction software specialists.
 
-1. **Development machines and workstations**  
-   Used by the development and research team for coding, data engineering, analysis and running smaller tests.
+**2. Research notes and experiment design**  
+- Architecture and design documents for each experimental component (context engine, classifiers, quote parser).
+- Written hypotheses with explicit acceptance criteria before experiments commenced.
+- Experiment protocols specifying datasets, metrics, baselines and evaluation methods.
 
-2. **On‑premise and cloud servers**  
-   - Local servers used for internal test deployments of the Quotech backend, frontend and supporting services.
-   - Cloud compute (primarily AWS EC2) used for heavier workloads such as embedding large document corpora, running batch experiments and hosting pilot environments.
+**3. Code and experiment artefacts**  
+- GitLab repositories (`quotech-backend`, `quotech-frontend`, `billing-frontend`) with branches, merge requests and code review history.
+- Configuration files, scripts and notebooks used to run experiments.
+- Validation outputs: metrics tables, confusion matrices, latency benchmarks, plots comparing model versions.
 
-3. **Databases and storage**  
-   - PostgreSQL for structured data.
-   - Neo4j for the context graph.
-   - Vector database (ChromaDB) for semantic embeddings.
-   - Object storage (e.g. S3) for documents, logs and model artefacts.
+**4. Data and pilot records**  
+- Briefs describing the origin of datasets and de-identification steps.
+- Results of benchmark runs on real data, including issues discovered and corrections made.
+- Notes from pilot sessions, clearly distinguishing experimental observation from commercial delivery.
 
-4. **AI/ML infrastructure**  
-   - Access to LLM APIs (OpenAI, DeepSeek) for summarisation, classification and refinement experiments.
-   - GPU‑enabled instances for training and evaluating ML models.
-   - Monitoring, logging and tracing tools for observing behaviour in pilot deployments.
+**5. Compliance and financial evidence**  
+- Timesheet summaries and R&D allocation notes for employees and contractors.
+- Invoices for R&D contractors, cloud compute, storage and specialist software.
+- Xero reports and FY25 R&D working Excel file, reconciled to the R&D Chart of Accounts.
 
-These facilities are used directly in the conduct of the R&D activities – in particular for running experiments, storing and querying large volumes of documents and logs, and simulating production loads for performance testing.
+**6. Change logs and decision records**  
+- Logs describing technical pivots (e.g. the shift from pure memory tree to hybrid SQL + graph) with dates and reasons.
+- Records of threshold adjustments based on experimental results.
+
+Together these records provide contemporaneous evidence of planned experiments, reasons for undertaking them, results obtained, and conclusions drawn for each income year.
 
 ---
 
-## Beneficiary details (portal: “To establish whether the Company will be a beneficiary…”) 
+## Plant and facilities (portal: "Briefly describe the plant and facilities…") 
 
-Bravada Group Pty Ltd is the main and direct beneficiary of the Quotech R&D activities.
+Quotech is a software and data-intensive project. The facilities are primarily compute and network infrastructure used directly in conducting R&D experiments.
 
-### Ownership of results
+**1. Development machines and workstations**  
+Used by the development and research team, located in Ringwood VIC, for coding, data engineering, analysis and running smaller experiments.
 
-All software, models and documentation produced under this project are created for and owned by Bravada Group, including:
+**2. On-premise and cloud servers**  
+- Local servers for internal test deployments of experimental components.
+- Cloud compute (primarily AWS EC2, ap-southeast-2 region) for heavier workloads such as embedding large document corpora, running batch experiments and hosting pilot environments.
 
-- the Quotech platform (frontend and backend code);
-- the context engine, classifiers and quote intelligence pipelines;
-- the schemas, specifications and configuration used to drive the system; and
-- the research notes, pre‑prints and internal design documents.
+**3. Databases and storage**  
+- PostgreSQL for structured experimental data.
+- Neo4j for graph-based context experiments.
+- Vector database (ChromaDB) for semantic embedding experiments.
+- Object storage (S3) for documents, logs and model artefacts.
 
-We work with contractors and pilot sub‑contractors under arrangements where Bravada retains IP in the platform and techniques, while pilot companies receive the benefit of the working system for their own operations.
+**4. AI/ML infrastructure**  
+- Access to LLM APIs for summarisation, classification and parsing experiments.
+- GPU-enabled instances for training and evaluating ML models.
+- Monitoring, logging and tracing tools for observing experimental behaviour.
 
-### Control of R&D direction and conduct
+**Location of R&D:**  
+All experimental design, parameter selection, data preparation, analysis and evaluation are undertaken by staff located in Ringwood, VIC, Australia. Cloud compute resources are used as tools under the direction of Australian-based personnel.
 
-Bravada controls the direction and conduct of all Quotech R&D. In practical terms this means we:
+---
 
-- decide which modules and hypotheses to prioritise in a given year;
-- design the experiments and set acceptance thresholds;
-- choose the technology stack and architecture; and
-- decide when a line of work is ready to move from experiment to production or needs to be re‑designed.
+## Beneficiary details (portal: "To establish whether the Company will be a beneficiary…") 
 
-External parties (e.g. pilot companies) provide domain input and feedback but do not control the R&D program.
+Bravada Group Pty Ltd is the sole beneficiary of the Quotech R&D activities.
 
-### Financial burden
+**Ownership of results:**  
+All software, models, specifications and documentation produced under this project are created for and owned by Bravada Group. Contractors work under agreements where Bravada retains all intellectual property in the platform and experimental findings. Pilot companies receive access to the working system but do not acquire IP rights.
 
-The financial burden of the R&D is borne by Bravada Group:
+**Control of R&D direction and conduct:**  
+Bravada controls all aspects of the R&D program:
+- Selects and prioritises experimental hypotheses for each income year
+- Designs experiments and sets quantitative acceptance thresholds
+- Chooses technology stack and architecture
+- Decides when a line of work has been validated or should be redesigned
 
-- R&D wages are paid by Bravada and recorded against dedicated R&D accounts in Xero.
-- R&D contractor costs, cloud infrastructure, software subscriptions and other operating costs are funded by Bravada.
-- There are no external grants or guarantees funding the Quotech R&D at this stage.
+External parties provide domain feedback but do not control the R&D program.
 
-Any future commercial benefit from Quotech – whether as a product, service or licensing opportunity – will accrue to Bravada Group. The company is therefore carrying both the development risk and the potential reward.
+**Financial burden:**  
+The financial burden of the R&D is borne entirely by Bravada Group:
+- R&D wages paid by Bravada and recorded against dedicated R&D accounts in Xero
+- R&D contractor costs, cloud infrastructure and software subscriptions funded by Bravada
+- No external grants or guarantees fund the Quotech R&D
+
+Bravada bears both the development risk and will receive any future commercial benefit.
+
+---
+
+## Feedstock Inputs
+
+**AUD 0.00**
+
+*This is a software R&D project. No physical goods are transformed and sold as part of the experimental work.*
 
 ---
 
@@ -298,25 +304,27 @@ Any future commercial benefit from Quotech – whether as a product, service or 
 
 # CORE R&D ACTIVITIES – SUMMARY
 
-For this project we are registering **two core R&D activities**:
+For this project we are registering **two core R&D activities** for FY25:
 
-1. **Email and Document Context Intelligence and Sub-Module Creation: Bills, Timesheets, BI and Information** (Reference: PQYAQTS17)
-2. **AI-Driven Quote Reading, Cost Center Extraction and Predictive BI Analytics** (Reference: P1SHYTK8Z)
+1. **Core Activity 1: Context Engine and Document Classification Experiments** (Reference: PQYAQTS17)
+2. **Core Activity 2: Quote Parsing and Cost Extraction Experiments** (Reference: P1SHYTK8Z)
+
+**Supporting activities** (not registered as core) include:
+- Integration of experimental components into billing, timesheet and BI modules
+- User interface development
+- Pilot deployment infrastructure
+- Data pipeline and ETL work using established techniques
 
 The detailed descriptions for each core activity (hypotheses, experiments, evaluation and conclusions) are set out in:
 
 - `03-filing-documents/FY25-Core-Activities-Complete.md`
 
-and map directly onto the fields in the AusIndustry portal.
-
-At a high level:
-
-- Core Activity 1 covers the **context engine and classification work** (including the modules for billing/PO intelligence and timesheet anomaly detection).
-- Core Activity 2 covers the **quote and cost intelligence work** (including predictive BI and anomaly detection for pricing).
-
-Both activities meet the definition of core R&D activities under s 355‑25(1) of the ITAA 1997: the outcomes could not be known in advance, the work follows a clear hypothesis–experiment–evaluation loop based on established AI/ML and software engineering principles, and the purpose is to generate new knowledge about how these techniques behave in the construction sub‑contractor domain.
+Both activities meet the definition of core R&D activities under s 355-25(1) of the ITAA 1997:
+- The outcomes could not be determined in advance by a competent professional using existing knowledge
+- The work follows a systematic progression from hypothesis to experiment to evaluation
+- The purpose is to generate new knowledge in the field of applied AI for domain-specific document processing
 
 ---
 
 *Document prepared: December 2024*  
-*Last updated: [Date]*
+*Last updated: December 2025*

@@ -70,3 +70,4 @@ Thumbs.db
 # - If you need to track certain file types, create a separate secure repository
 # - Consider using encrypted storage for sensitive documents
 # - Use environment variables or secure vaults for any credentials
+.env.local
