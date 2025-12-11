@@ -1,0 +1,72 @@
+# PATH: .gitignore
+# PURPOSE:
+# - Prevents sensitive information from being committed to version control.
+# - Protects financial data, personal information, and proprietary content.
+
+# ROLE IN ARCHITECTURE:
+# - Security layer: ensures sensitive RDTI filing information is not exposed.
+
+# NON-RESPONSIBILITIES:
+# - Does NOT handle encryption or access control
+# - Does NOT manage backup or archival systems
+
+# NOTES FOR FUTURE AI:
+# - Never commit files containing sensitive financial or personal information
+# - Review this file regularly to ensure all sensitive file types are covered
+# - Consider using git-secrets or similar tools for additional protection
+
+# Sensitive Financial Documents
+*.xlsx
+*.xls
+*.csv
+*financial*.pdf
+*invoice*.pdf
+*receipt*.pdf
+*cost*.pdf
+*budget*.pdf
+
+# Personal Information
+*timesheet*.pdf
+*timesheet*.xlsx
+*employee*.pdf
+*payroll*.pdf
+*personal*.pdf
+
+# Tax and Legal Documents
+*tax*.pdf
+*legal*.pdf
+*contract*.pdf
+*agreement*.pdf
+
+# Proprietary Information
+*proprietary*.pdf
+*confidential*.pdf
+*secret*.pdf
+
+# Backup Files
+*.bak
+*.backup
+*~*
+.DS_Store
+Thumbs.db
+
+# Temporary Files
+*.tmp
+*.temp
+*.log
+
+# Office Temporary Files
+~$*.docx
+~$*.xlsx
+~$*.pptx
+
+# Archive Files (may contain sensitive data)
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# Notes:
+# - If you need to track certain file types, create a separate secure repository
+# - Consider using encrypted storage for sensitive documents
+# - Use environment variables or secure vaults for any credentials

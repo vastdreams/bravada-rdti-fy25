@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bravada Group - RDTI FY25 Application</title>
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --secondary: #2c5282;
+            --accent: #38a169;
+            --warning: #d69e2e;
+            --danger: #e53e3e;
+            --light: #f7fafc;
+            --dark: #1a202c;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            opacity: 0.9;
+            font-size: 1.2rem;
+        }
+
+        .status-banner {
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-tabs a {
+            padding: 0.75rem 1.5rem;
+            background: var(--light);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-tabs a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .section h2 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section h3 {
+            color: var(--secondary);
+            margin: 1.5rem 0 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th,
+        td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--light);
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        tr:hover {
+            background: #f8fafc;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .badge-warning {
+            background: #fefcbf;
+            color: #744210;
+        }
+
+        .badge-info {
+            background: #bee3f8;
+            color: #2a4365;
+        }
+
+        .form-field {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .form-field label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-field .hint {
+            font-size: 0.85rem;
+            color: #718096;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-field .value {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1rem;
+            font-family: inherit;
+        }
+
+        .text-area {
+            white-space: pre-wrap;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            max-height: 420px;
+            overflow-y: auto;
+        }
+
+        .copy-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .copy-btn:hover {
+            background: var(--secondary);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .stat-card .label {
+            opacity: 0.9;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checklist li::before {
+            content: "☑";
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .accordion {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .accordion-header {
+            background: var(--light);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .accordion-header:hover {
+            background: #edf2f7;
+        }
+
+        .accordion-content {
+            padding: 1.5rem;
+            display: none;
+        }
+
+        .accordion.open .accordion-content {
+            display: block;
+        }
+
+        .accordion.open .accordion-header::after {
+            content: "▼";
+        }
+
+        .accordion-header::after {
+            content: "▶";
+        }
+
+        .expenditure-table {
+            background: #f0fff4;
+        }
+
+        .expenditure-table th {
+            background: #c6f6d5;
+        }
+
+        .total-row {
+            background: var(--primary) !important;
+            color: white;
+            font-weight: 700;
+        }
+
+        .total-row td {
+            border: none;
+        }
+
+        .doc-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--dark);
+            margin: 0.25rem;
+        }
+
+        .doc-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        @media print {
+            .copy-btn,
+            .nav-tabs {
+                display: none;
+            }
+
+            .section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>🏗️ Bravada Group RDTI Application</h1>
+        <p class="subtitle">Research &amp; Development Tax Incentive — Financial Year 2024‑25</p>
+    </header>
+
+    <div class="status-banner">
+        ✅ FY25 FILING STATUS: DOCUMENTATION COMPLETE — Ready for Submission
+    </div>
+
+    <div class="container">
+        <nav class="nav-tabs">
+            <a href="#overview">Overview</a>
+            <a href="#company">Company Details</a>
+            <a href="#finance">Finance</a>
+            <a href="#project">Project</a>
+            <a href="#core1">Core Activity 1</a>
+            <a href="#core2">Core Activity 2</a>
+            <a href="#evidence">Evidence</a>
+            <a href="#documents">Documents</a>
+        </nav>
+
+        <!-- Overview Section -->
+        <section id="overview" class="section">
+            <h2>📊 Application Overview</h2>
+
+            <div class="grid-2">
+                <div class="stat-card">
+                    <div class="number">$771,419</div>
+                    <div class="label">Total R&amp;D Expenditure FY25</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">$335,567</div>
+                    <div class="label">Expected Refund (43.5%)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">2</div>
+                    <div class="label">Core R&amp;D Activities</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">8</div>
+                    <div class="label">R&amp;D Staff (FTE, employees)</div>
+                </div>
+            </div>
+
+            <h3>Application Details</h3>
+            <table>
+                <tr><th>Tracking ID</th><td>P8QFCP4CW</td></tr>
+                <tr><th>R&amp;D Entity</th><td>BRAVADA GROUP PTY LTD</td></tr>
+                <tr><th>ABN</th><td>58167664815</td></tr>
+                <tr><th>ACN</th><td>167664815</td></tr>
+                <tr><th>Income Period</th><td>01 Jul 2024 - 30 Jun 2025</td></tr>
+                <tr><th>Due Date</th><td>30 Apr 2026</td></tr>
+                <tr><th>Financial Year</th><td>2024-25</td></tr>
+            </table>
+
+            <h3>Application Progress</h3>
+            <table>
+                <tr><td>Registration type</td><td><span class="badge badge-success">✓ Completed</span></td></tr>
+                <tr><td>Company details</td><td><span class="badge badge-success">✓ Completed</span></td></tr>
+                <tr><td>Contact details</td><td><span class="badge badge-success">✓ Completed</span></td></tr>
+                <tr><td>Application inclusions</td><td><span class="badge badge-success">✓ Completed</span></td></tr>
+                <tr><td>Employees</td><td><span class="badge badge-success">✓ Completed</span></td></tr>
+                <tr><td>Finance</td><td><span class="badge badge-success">✓ Completed</span></td></tr>
+                <tr><td>Projects and activities</td><td><span class="badge badge-warning">In Progress</span></td></tr>
+                <tr><td>Review application</td><td><span class="badge badge-info">Not Started</span></td></tr>
+                <tr><td>Declare and submit</td><td><span class="badge badge-info">Not Started</span></td></tr>
+            </table>
+        </section>
+
+        <!-- Company Details -->
+        <section id="company" class="section">
+            <h2>🏢 Company Details</h2>
+
+            <table>
+                <tr><th>Company Name</th><td>BRAVADA GROUP PTY LTD</td></tr>
+                <tr><th>ABN</th><td>58167664815</td></tr>
+                <tr><th>ACN</th><td>167664815</td></tr>
+                <tr><th>Registration Date</th><td>22/01/2014</td></tr>
+                <tr><th>ANZSIC Division</th><td>E - CONSTRUCTION</td></tr>
+                <tr><th>ANZSIC Class</th><td>3299 Other Construction Services n.e.c.</td></tr>
+            </table>
+
+            <h3>Ultimate Holding Company</h3>
+            <table>
+                <tr><th>Company Name</th><td>PHOENIX EQUITY INVESTMENTS PTY LTD</td></tr>
+                <tr><th>ABN</th><td>39677010043</td></tr>
+                <tr><th>ACN</th><td>677010043</td></tr>
+                <tr><th>Country</th><td>AUSTRALIA</td></tr>
+            </table>
+
+            <h3>Primary Contact</h3>
+            <table>
+                <tr><th>Name</th><td>Mr Gary McMahon</td></tr>
+                <tr><th>Position</th><td>CEO</td></tr>
+                <tr><th>Phone</th><td>0419546264</td></tr>
+                <tr><th>Email</th><td>gary.mcmahon@bravada.com.au</td></tr>
+                <tr><th>Address</th><td>Unit 3 10 Pilgrim Ct, RINGWOOD VIC 3134</td></tr>
+            </table>
+
+            <h3>Tax Agent</h3>
+            <table>
+                <tr><th>Name</th><td>Mr Chander Dhawan</td></tr>
+                <tr><th>Registration</th><td>78394004</td></tr>
+                <tr><th>Phone</th><td>0421820275</td></tr>
+                <tr><th>Email</th><td>cdhawanca@gmail.com</td></tr>
+            </table>
+        </section>
+
+        <!-- Finance Section -->
+        <section id="finance" class="section">
+            <h2>💰 Finance</h2>
+
+            <div class="form-field">
+                <label>Most recently completed income year (YYYY/YY+1)</label>
+                <div class="value">2024/25</div>
+            </div>
+
+            <div class="form-field">
+                <label>Taxable income or loss (across all companies)</label>
+                <div class="hint">Losses should be shown as negative figures</div>
+                <div class="value">AUD 195,852.00 (Profit)</div>
+            </div>
+
+            <div class="form-field">
+                <label>Aggregated turnover</label>
+                <div class="value">AUD 12,760,872.00</div>
+            </div>
+
+            <div class="form-field">
+                <label>Revenue from export sales</label>
+                <div class="value">AUD 0.00</div>
+            </div>
+
+            <div class="form-field">
+                <label>R&amp;D Expenditure</label>
+                <div class="value">AUD 771,419.00</div>
+            </div>
+
+            <h3>Employees</h3>
+            <table>
+                <tr><th>Total employees at 30 Jun 2025</th><td>50 (FTE including contractors)</td></tr>
+                <tr><th>R&amp;D employees (FTE)</th><td>8</td></tr>
+                <tr><th>R&amp;D contractors</th><td>2</td></tr>
+            </table>
+
+            <h3>R&amp;D Expenditure Breakdown (from Xero)</h3>
+            <table class="expenditure-table">
+                <tr><th>Account</th><th>Code</th><th>Amount</th></tr>
+                <tr><td>R&amp;D Wages Labour Cost</td><td>434</td><td>$520,412.60</td></tr>
+                <tr><td>R&amp;D Contracted Services</td><td>415</td><td>$187,425.36</td></tr>
+                <tr><td>R&amp;D IT &amp; Subscription</td><td>646</td><td>$41,656.87</td></tr>
+                <tr><td>R&amp;D Rental Cost</td><td>644</td><td>$21,924.44</td></tr>
+                <tr class="total-row"><td colspan="2"><strong>TOTAL</strong></td><td><strong>$771,419.27</strong></td></tr>
+            </table>
+        </section>
+
+        <!-- Project Section -->
+        <section id="project" class="section">
+            <h2>📋 Project Details</h2>
+
+            <table>
+                <tr><th>Project Name</th><td>AI-Driven Labor Efficiency and Quoting Analysis System</td></tr>
+                <tr><th>Project ID</th><td>PBN3C99CP</td></tr>
+                <tr><th>Reference</th><td>QUO0001</td></tr>
+                <tr><th>Start Date</th><td>July 2022</td></tr>
+                <tr><th>End Date</th><td>June 2026</td></tr>
+                <tr><th>Total Budget</th><td>AUD 1,500,000.00</td></tr>
+                <tr><th>R&amp;D Location</th><td>3134 (Ringwood, VIC)</td></tr>
+                <tr><th>ANZSRC Division</th><td>46 - Information and Computing Sciences</td></tr>
+                <tr><th>ANZSRC Group</th><td>4602 - Artificial intelligence</td></tr>
+                <tr><th>Feedstock Inputs</th><td>AUD 0.00</td></tr>
+            </table>
+
+            <div class="form-field">
+                <label>Project Objectives</label>
+                <div class="hint">Maximum 4000 characters</div>
+                <div class="value text-area" id="objectives">The objective of this project is to build Quotech, an AI‑driven operating layer for construction sub‑contractors that can finally make sense of the flood of emails, documents and quotes that run through a business, and turn them into live, trusted intelligence for planning and billing.
+
+In simple terms, we are trying to answer two questions:
+
+1. Can we build a context engine that actually understands a sub‑contractor’s world of jobs, POs, bills, quotes, day sheets and QA records well enough that staff can ask it questions and rely on the answers?
+2. Can we turn the messy, inconsistent quotes and timesheets that arrive every day into structured cost and labour data that can drive honest margin analysis and better decisions, without drowning people in admin?
+
+To do that, the project is split into five AI‑driven modules:
+
+1. Email and Directory AI Module – classifies incoming emails and attachments into Bills, POs, Contracts, Variations, Day Sheets, QA records and general information, and files them against the right jobs and suppliers.
+2. Document Fetch and Information AI – lets a user ask for documents or answers ("show all variations linked to PO 123", "what is the latest subcontract agreement for Job X?") and get grounded, explainable responses.
+3. Billing / PO / Invoice Intelligence – reads supplier bills, matches them to POs, checks prices against history and tags them for approval with confidence scores.
+4. Quote Intelligence – reads quotes in all their different formats, extracts structured items and cost centres, and feeds that into BI and forecasting so a sub‑contractor can see where margins are likely to blow out.
+5. Timesheet Planning – brings calendar, day sheets and job budgets together to spot capacity issues and anomalies early.
+
+Underneath these modules we are doing foundational R&amp;D on two fronts:
+
+- a context and memory architecture (Core Activity 1) that can live with construction documents over years and get better with use; and
+- a quote and cost intelligence engine (Core Activity 2) that can turn supplier quotes into clean, analysable data.
+
+The ultimate objective is not just to automate some admin, but to create a reusable technical backbone that sub‑contractors can trust when they ask "what is really going on in my jobs this week?"</div>
+                <button class="copy-btn" onclick="copyText('objectives')">📋 Copy</button>
+            </div>
+
+            <div class="form-field">
+                <label>Documents kept / records (contemporaneous evidence)</label>
+                <div class="hint">Maximum 4000 characters</div>
+                <div class="value text-area" id="docs-kept">We keep detailed, contemporaneous records of the Quotech R&amp;D work so that every major decision and experiment can be reconstructed later. These are maintained mainly in Notion, GitLab, Excel, and cloud storage, all with timestamps and version history where possible.
+
+At a high level, our records include:
+
+1. Research notes and design documents
+- Architecture and design documents describing the context engine, classification modules and quote intelligence pipelines.
+- Research notes and pre‑print drafts setting out the theoretical background, hypotheses and validation strategies.
+- Planning documents for each of the five modules, with milestones and data requirements.
+
+2. Code and experiment artefacts
+- GitLab repositories for `quotech-backend`, `quotech-frontend` and `billing-frontend`, including branches, merge requests and code review history.
+- Configuration files, scripts and notebooks used to run classification, retrieval, quote extraction and anomaly detection experiments.
+- Validation outputs: metrics tables, confusion matrices, latency benchmarks and comparison plots for different model versions.
+
+3. Data and pilot company records
+- Briefs describing the origin of pilot company datasets and the agreed de‑identification steps.
+- Results of benchmark runs on real data (emails, documents, quotes, timesheets), including summaries of issues found and fixes applied.
+- Notes from pilot sessions with operations staff and finance teams.
+
+4. Compliance and financial evidence
+- Timesheet summaries and R&amp;D allocation notes for employees and contractors working on Quotech.
+- Invoices for R&amp;D contractors, cloud compute, storage, and specialist software used to support the experiments.
+- Xero reports and the FY25 R&amp;D working Excel file, including account‑level reconciliation to the R&amp;D Chart of Accounts.
+
+5. Chain‑of‑thought and audit logs
+- COT logs for key AI decisions (particularly around classification and quote parsing), stored in a dedicated table so we can see how the system reasoned about borderline cases.
+- Change logs describing technical pivots (for example, when we moved from a pure memory tree to the hybrid SQL + graph design) and why.
+
+Together these records provide contemporaneous evidence of the experiments, their rationale, the results, and the conclusions we drew.</div>
+                <button class="copy-btn" onclick="copyText('docs-kept')">📋 Copy</button>
+            </div>
+
+            <div class="form-field">
+                <label>Plant and facilities</label>
+                <div class="hint">Maximum 4000 characters</div>
+                <div class="value text-area" id="plant">Quotech is a software and data‑intensive project. The "plant and facilities" are mostly compute and network infrastructure rather than traditional factory equipment.
+
+The main facilities are:
+
+1. Development machines and workstations
+Used by the development and research team for coding, data engineering, analysis and running smaller tests.
+
+2. On‑premise and cloud servers
+- Local servers used for internal test deployments of the Quotech backend, frontend and supporting services.
+- Cloud compute (primarily AWS EC2) used for heavier workloads such as embedding large document corpora, running batch experiments and hosting pilot environments.
+
+3. Databases and storage
+- PostgreSQL for structured data.
+- Neo4j for the context graph.
+- Vector database (ChromaDB) for semantic embeddings.
+- Object storage (for example, S3) for documents, logs and model artefacts.
+
+4. AI/ML infrastructure
+- Access to LLM APIs (OpenAI, DeepSeek) for summarisation, classification and refinement experiments.
+- GPU‑enabled instances for training and evaluating ML models.
+- Monitoring, logging and tracing tools for observing behaviour in pilot deployments.
+
+These facilities are used directly in the conduct of the R&amp;D activities – in particular for running experiments, storing and querying large volumes of documents and logs, and simulating production loads for performance testing.</div>
+                <button class="copy-btn" onclick="copyText('plant')">📋 Copy</button>
+            </div>
+
+            <div class="form-field">
+                <label>Beneficiary – ownership, control, financial burden</label>
+                <div class="hint">Maximum 4000 characters</div>
+                <div class="value text-area" id="beneficiary">Bravada Group Pty Ltd is the main and direct beneficiary of the Quotech R&amp;D activities.
+
+Ownership of results
+All software, models and documentation produced under this project are created for and owned by Bravada Group, including:
+- the Quotech platform (frontend and backend code);
+- the context engine, classifiers and quote intelligence pipelines;
+- the schemas, specifications and configuration used to drive the system; and
+- the research notes, pre‑prints and internal design documents.
+
+We work with contractors and pilot sub‑contractors under arrangements where Bravada retains IP in the platform and techniques, while pilot companies receive the benefit of the working system for their own operations.
+
+Control of R&amp;D direction and conduct
+Bravada controls the direction and conduct of all Quotech R&amp;D. In practical terms this means we:
+- decide which modules and hypotheses to prioritise in a given year;
+- design the experiments and set acceptance thresholds;
+- choose the technology stack and architecture; and
+- decide when a line of work is ready to move from experiment to production or needs to be re‑designed.
+
+External parties (for example pilot companies) provide domain input and feedback but do not control the R&amp;D program.
+
+Financial burden
+The financial burden of the R&amp;D is borne by Bravada Group:
+- R&amp;D wages are paid by Bravada and recorded against dedicated R&amp;D accounts in Xero.
+- R&amp;D contractor costs, cloud infrastructure, software subscriptions and other operating costs are funded by Bravada.
+- There are no external grants or guarantees funding the Quotech R&amp;D at this stage.
+
+Any future commercial benefit from Quotech – whether as a product, service or licensing opportunity – will accrue to Bravada Group. The company is therefore carrying both the development risk and the potential reward.</div>
+                <button class="copy-btn" onclick="copyText('beneficiary')">📋 Copy</button>
+            </div>
+        </section>
+
+        <!-- Core Activity 1 -->
+        <section id="core1" class="section">
+            <h2>🔬 Core Activity 1: Email and Document Context Intelligence</h2>
+
+            <table>
+                <tr><th>Activity Name</th><td>Email and Document Context Intelligence and Sub-Module Creation: Bills, Timesheets, BI and Information</td></tr>
+                <tr><th>Reference</th><td>PQYAQTS17</td></tr>
+                <tr><th>Start Date</th><td>09/2022</td></tr>
+                <tr><th>End Date</th><td>05/2026</td></tr>
+                <tr><th>Related Project</th><td>AI-Driven Labor Efficiency and Quoting Analysis System</td></tr>
+                <tr><th>Excluded from core?</th><td>No</td></tr>
+                <tr><th>Performed by</th><td>Only the R&amp;D Company</td></tr>
+                <tr><th>Covered by Determination?</th><td>No</td></tr>
+                <tr><th>FY25 Expenditure</th><td>$385,710.00</td></tr>
+            </table>
+
+            <h3>Selections</h3>
+            <ul class="checklist">
+                <li>Previously registered activity: Yes</li>
+                <li>There was no applicable information in scientific, technical, or professional literature</li>
+                <li>Experts in the field provided advice that there wasn't a solution</li>
+                <li>There wasn’t a way to adapt solutions from other companies</li>
+                <li>Conducted for generating new knowledge: Yes</li>
+            </ul>
+
+            <h3>Evidence Kept</h3>
+            <ul class="checklist">
+                <li>Evidence of hypothesis and design of experiments</li>
+                <li>Documented results and evaluation of experiments</li>
+                <li>Evidence of revisions in response to previous results</li>
+                <li>Evidence of searches for current knowledge</li>
+                <li>Evidence that outcome could only be determined by experiments</li>
+                <li>Other: Pre‑Print, Logs, Github, Update Register in Notion, Research Notes (Detailed 100+ Pages)</li>
+            </ul>
+
+            <div class="accordion open">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Core Activity Description (4000 chars)</div>
+                <div class="accordion-content">
+                    <div class="value text-area" id="core1-desc">This core activity covers the brains of Quotech – the part that has to understand emails and documents, keep long‑lived context, and serve that context back quickly and reliably for downstream modules (billing, timesheets, BI, etc.).
+
+In practical terms, we are building and testing a neuroplasticity‑inspired context engine for construction documents. The system ingests emails and attachments (contracts, quotes, variations, day sheets, invoices, POs, QA records), turns them into structured summaries, stitches them together into a graph, and then uses that graph to classify and retrieve information for real jobs.
+
+The R&amp;D work for this core activity includes:
+
+- Designing and implementing a context graph and vector memory for thousands of construction documents, with page‑level nodes, similarity edges and project relationships.
+- Investigating whether usage‑driven edge weighting (our “neuroplasticity” idea) actually improves retrieval over time in the real world.
+- Building a multi‑signal classifier that uses subject, sender, thread history, body content and attachments together to decide whether an email is a Bill, PO, Contract, Variation, Day Sheet, QA record, etc.
+- Wiring this context engine into real sub‑modules:
+  - Billing / PO / Invoice intelligence (matching bills to POs, tagging suppliers and jobs, flagging price anomalies).
+  - Timesheet and day‑sheet intelligence (classifying, validating and linking to jobs).
+  - BI and information chat (letting a user ask questions like “show me all variations for Job X” and getting a grounded answer).
+
+The outcome we are aiming for is not just another RAG stack; it is a context system that can live with messy construction data for years, learns which relationships actually matter, and feeds that back into modules that save real time for sub‑contractors.</div>
+                    <button class="copy-btn" onclick="copyText('core1-desc')">📋 Copy</button>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Why outcome could not be known in advance</div>
+                <div class="accordion-content">
+                    <div class="value text-area" id="core1-competent">A competent professional in AI/ML and construction software could not have known the outcome of this activity in advance for a few simple reasons:
+
+1. Nobody has tried this specific combination in this domain.
+There are plenty of papers and products about RAG, vector search and “AI for documents”, but we could not find any prior work that combines graph + vector + usage‑based edge updates in a live construction environment and targets the very specific document mix that sub‑contractors deal with.
+
+2. Classification behaviour for construction categories is unknown.
+A professional could reasonably guess that a model will be “okay” for Bills and POs, but has no way to know upfront what accuracy you can reach for things like differentiating Day Sheets from Timesheets when people change templates and naming, or teasing apart QA records from general emails. Those are empirical questions.
+
+3. Latency vs. depth trade‑offs can’t be solved on paper.
+You can sketch architectures all day, but you can’t know in advance if this particular stack (summarisation → embedding → graph traversal → LLM) will stay under 500 ms P95 on real workloads and still keep enough context to answer real questions reliably. That depends on real data volume, query patterns, hardware and implementation details.
+
+4. “Neuroplastic” memory is still a hypothesis.
+The idea of strengthening edges based on use is reasonable, but nobody could say beforehand whether it would measurably improve retrieval accuracy or just overfit to noisy usage patterns. That behaviour only emerges after weeks of real queries.
+
+5. Cross‑company transfer is genuinely unknown.
+It was not clear before we started how much accuracy would drop if you trained on Company A’s emails and then applied the same system to Company B, or how many documents would be needed to fine‑tune back to an acceptable level.
+
+Because of these uncertainties, the only way to answer “will this actually work in construction, at the accuracy and speed we need?” was to design experiments, run them, and look at the data.</div>
+                    <button class="copy-btn" onclick="copyText('core1-competent')">📋 Copy</button>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Hypothesis</div>
+                <div class="accordion-content">
+                    <div class="value text-area" id="core1-hypothesis">The working hypothesis for this core activity is:
+
+If we combine a graph‑based memory of construction documents with vector embeddings and usage‑driven edge weighting, and run classification and retrieval on top of that, then we can (a) classify core construction documents with more than 85% accuracy and (b) answer context‑heavy questions with sub‑second latency, and (c) see those metrics improve as the system is used.
+
+Under that umbrella we are testing several concrete propositions:
+- That decomposing documents into page‑level nodes with summaries and explicit relationships will give better context for LLM answers than a flat vector index alone.
+- That a multi‑signal classifier (subject + sender + thread + content + attachments) will materially outperform any single‑signal classifier for Bills, POs, Contracts, Variations, Day Sheets and QA records.
+- That a three‑tier confidence routing (auto‑assign, suggest, manual) can hit a useful balance between automation and safety for sub‑contractors.
+- That edge weighting based on retrieval usage will, over about a month of real‑world use, lead to higher retrieval accuracy and shorter average paths through the graph.</div>
+                    <button class="copy-btn" onclick="copyText('core1-hypothesis')">📋 Copy</button>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Experiment design</div>
+                <div class="accordion-content">
+                    <div class="value text-area" id="core1-experiment">We ran a sequence of experiments, each aimed at one part of the hypothesis:
+
+1. Summarisation model tests.
+We took 500 real documents across categories and ran them through different summarisation models (T5, Janus, GPT). Humans rated faithfulness and usefulness; we compared this to runtime. This told us which models were “good enough” to sit at the front of the pipeline.
+
+2. Embedding and clustering.
+We embedded 2,000 page‑level summaries and looked at how well simple clustering aligned with our manual labels (Bills, Contracts, etc.). This checked that the embedding space even had the structure we needed.
+
+3. Soft‑edge creation and GPT refinement.
+We used cosine similarity to propose “similar page” pairs, then sent batches to GPT to label as strong or weak relationships, with short reasons. We compared those labels to human judgements and tuned thresholds.
+
+4. Classification experiments.
+On 1,500 manually labelled emails/documents we tried single‑signal and multi‑signal classifiers and measured precision/recall/F1 per category. This told us how much multi‑signal actually buys us.
+
+5. Retrieval and latency tests.
+Using 500 “known answer” queries from pilot companies, we measured answer accuracy and latency at P50/P95/P99, before and after adding parallel graph traversal and Redis caching.
+
+6. Neuroplasticity / usage‑driven evolution.
+We deployed the system at a pilot company and let it run for four weeks. Every week we sampled queries, checked answer quality, and logged which edges were used. We then updated edge weights and watched how accuracy and path lengths changed over time.</div>
+                    <button class="copy-btn" onclick="copyText('core1-experiment')">📋 Copy</button>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Evaluation</div>
+                <div class="accordion-content">
+                    <div class="value text-area" id="core1-eval">We evaluated the experiments using hard numbers and practical “does this feel right in the field” checks.
+
+On the quantitative side we tracked:
+- Classification accuracy by category and overall, compared against explicit targets.
+- Retrieval latency at P50, P95 and P99, and how that changed with parallelism and caching.
+- Relationship precision before and after GPT refinement.
+- “Leakage” rate, i.e. how often human users had to correct the system’s decisions.
+- Memory evolution, i.e. improvement in accuracy and reduction in path length over weeks.
+
+On the qualitative side we:
+- Sat with operations staff at pilot companies and asked them to mark AI classifications as right/wrong/close.
+- Reviewed tricky retrieval cases (for example “find all variations linked to this PO”) and asked whether the context the system pulled in looked like what a competent project manager would have pulled manually.
+- Used the chain‑of‑thought logs to understand why the system took certain paths through the graph, and whether those paths made sense to humans.
+
+We did not use formal p‑values; the decision standard was more practical: is the system now reliable enough that a sub‑contractor would trust it for real work, and are we clearly above what they could do with their existing tools?</div>
+                    <button class="copy-btn" onclick="copyText('core1-eval')">📋 Copy</button>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Conclusions</div>
+                <div class="accordion-content">
+                    <div class="value text-area" id="core1-conclusions">By the end of FY25 we had enough data to draw some clear technical conclusions:
+
+1. The neuroplasticity idea works in practice.
+When we ran the system for a month at a pilot company and let edges strengthen based on use, retrieval accuracy improved by around 7–9 percentage points and average path length dropped. Irrelevant results went down materially.
+
+2. Multi‑signal classification is worth the complexity.
+Bills, POs and Contracts passed the 90% accuracy mark; lower‑frequency categories lagged but still improved. A single‑signal baseline simply did not get there for construction data.
+
+3. We had to pivot away from a “pure” memory tree.
+An early design that tried to store everything in a generic memory tree did not hit latency or maintainability targets. Moving to a hybrid of SQL for structured facts plus a graph for relationships was a key architectural pivot.
+
+4. Parallelisation and caching were non‑optional.
+Without them we could not meet P95 latency targets. This will shape all future scaling work.
+
+5. Handwritten documents remain a hard problem.
+For handwritten day sheets and certain scanned content the system still underperforms. That is clearly marked as out of scope for FY25 and a topic for later research.
+
+Overall, the core conclusion is that the context‑graph + multi‑signal classifier + neuroplastic memory architecture is viable for construction email/document intelligence, and we now know exactly where it is strong and where it still needs work.</div>
+                    <button class="copy-btn" onclick="copyText('core1-conclusions')">📋 Copy</button>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">New knowledge</div>
+                <div class="accordion-content">
+                    <div class="value text-area" id="core1-knowledge">The main pieces of new knowledge from this core activity are:
+
+1. How to build a usage‑evolving memory for construction documents.
+We now have concrete patterns for structuring document and page nodes, creating and refining similarity edges, and updating edge weights over time in a way that measurably improves retrieval.
+
+2. Signal weighting and thresholds for construction email classification.
+We learned which signals matter most, how to weight them, and what confidence thresholds are realistic for different document categories.
+
+3. A practical hybrid of SQL and graph for this domain.
+We have working schema patterns and routing rules for “what lives in SQL vs what lives in the graph”, which can be reused in other sub‑contractor products.
+
+4. Concrete limits of transfer learning between sub‑contractors.
+We quantified how much accuracy is lost when you move a model between companies, and how many documents you need to claw that back.
+
+These are written up in our internal research notes and sit behind the product features we are shipping.</div>
+                    <button class="copy-btn" onclick="copyText('core1-knowledge')">📋 Copy</button>
+                </div>
+            </div>
+
+            <h3>Expenditure</h3>
+            <table class="expenditure-table">
+                <tr><th>Period</th><th>Amount</th></tr>
+                <tr><td>Prior to 2024/25</td><td>$580,000.00</td></tr>
+                <tr><td>2024/25</td><td>$385,710.00</td></tr>
+                <tr><td>2025/26</td><td>$200,000.00</td></tr>
+                <tr><td>2026/27</td><td>$100,000.00</td></tr>
+                <tr><td>Post 2026/27</td><td>$0.00</td></tr>
+                <tr class="total-row"><td><strong>TOTAL</strong></td><td><strong>$1,265,710.00</strong></td></tr>
+            </table>
+        </section>
+
+        <!-- Core Activity 2 -->
+        <section id="core2" class="section">
+            <h2>🔬 Core Activity 2: Quote Intelligence and Cost Analysis</h2>
+
+            <table>
+                <tr><th>Activity Name</th><td>AI-Driven Quote Reading, Cost Center Extraction and Predictive BI Analytics</td></tr>
+                <tr><th>Reference</th><td>P1SHYTK8Z</td></tr>
+                <tr><th>Start Date</th><td>07/2022</td></tr>
+                <tr><th>End Date</th><td>06/2026</td></tr>
+                <tr><th>Related Project</th><td>AI-Driven Labor Efficiency and Quoting Analysis System</td></tr>
+                <tr><th>Excluded from core?</th><td>No</td></tr>
+                <tr><th>Performed by</th><td>Only the R&amp;D Company</td></tr>
+                <tr><th>Covered by Determination?</th><td>No</td></tr>
+                <tr><th>FY25 Expenditure</th><td>$385,709.00</td></tr>
+            </table>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Core Activity Description</div>
+                <div class="accordion-content">
+                    <div class="value text-area" id="core2-desc">This core activity focuses on the front door of cost intelligence: reading quotes from suppliers, no matter how they are formatted, and turning them into clean, structured cost data that can drive billing, margin analysis and anomaly detection.
+
+In practice, we see quotes arriving as:
+- Excel spreadsheets with different column layouts and naming conventions;
+- PDFs exported from those spreadsheets with different fonts and formatting;
+- Scans of typed or annotated documents; and
+- The occasional image or email‑embedded table.
+
+The R&amp;D problem is to work out whether we can:
+- recognise these different formats;
+- extract all the important fields (item, description, quantity, unit, unit price, total, category, etc.) with high accuracy; and
+- then build reliable analytics on top of that, such as margin forecasts and price anomaly flags.
+
+The work under this core activity includes:
+- Analysing real quotes from pilot companies and building a taxonomy of formats and column names.
+- Designing an OCR + LLM pipeline that can handle both native digital quotes and scanned documents.
+- Developing fuzzy matching for column headers so that “Qty”, “Quantity”, “Units”, “No.”, etc. all land in the right canonical field.
+- Training classifiers to assign each line item to a cost centre (Labour, Materials, Equipment, Subcontract, Other, with construction‑specific sub‑categories).
+- Building prototype predictive models that compare quotes to actuals and highlight where a job is likely to run over.
+- Developing pricing anomaly detection that flags unusual unit rates or total amounts relative to historical behaviour by supplier.</div>
+                    <button class="copy-btn" onclick="copyText('core2-desc')">📋 Copy</button>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Hypothesis</div>
+                <div class="accordion-content">
+                    <div class="value text-area" id="core2-hypothesis">The working hypothesis for this core activity is:
+
+If we combine OCR, LLM‑based parsing, fuzzy column mapping and construction‑specific classifiers, then we can turn messy quotes into structured cost data with high enough accuracy to support reliable billing, BI and anomaly detection.
+
+More concretely, we are testing whether:
+- We can reach around 96% field‑level accuracy on structured Excel‑origin quotes, and stay above 80% on typed PDFs.
+- We can reliably map dozens of real‑world column header variants into a small canonical schema.
+- We can classify line items into cost centres with more than 85% accuracy overall.
+- We can flag unusual prices with a high detection rate and an acceptable false positive rate (targeting more than 90% detection and less than 5% false positives).</div>
+                    <button class="copy-btn" onclick="copyText('core2-hypothesis')">📋 Copy</button>
+                </div>
+            </div>
+
+            <h3>Expenditure</h3>
+            <table class="expenditure-table">
+                <tr><th>Period</th><th>Amount</th></tr>
+                <tr><td>Prior to 2024/25</td><td>$320,000.00</td></tr>
+                <tr><td>2024/25</td><td>$385,709.00</td></tr>
+                <tr><td>2025/26</td><td>$200,000.00</td></tr>
+                <tr><td>2026/27</td><td>$100,000.00</td></tr>
+                <tr><td>Post 2026/27</td><td>$0.00</td></tr>
+                <tr class="total-row"><td><strong>TOTAL</strong></td><td><strong>$1,005,709.00</strong></td></tr>
+            </table>
+        </section>
+
+        <!-- Evidence Section -->
+        <section id="evidence" class="section">
+            <h2>📁 Evidence Index</h2>
+
+            <h3>Financial Evidence</h3>
+            <table>
+                <tr><th>Document</th><th>Location</th><th>Status</th></tr>
+                <tr><td>FY25 R&amp;D Working Excel</td><td>Info_Files/FY25 BRAVADA R&amp;D Working FY 24-25.xlsx</td><td><span class="badge badge-success">✓ Complete</span></td></tr>
+                <tr><td>Xero R&amp;D Accounts Evidence</td><td>02-evidence/financial/xero-rdti-accounts-evidence.md</td><td><span class="badge badge-success">✓ Complete</span></td></tr>
+                <tr><td>FY25 Cost Summary</td><td>02-evidence/financial/fy25-rdti-cost-summary.md</td><td><span class="badge badge-success">✓ Complete</span></td></tr>
+            </table>
+
+            <h3>Technical Evidence</h3>
+            <table>
+                <tr><th>Document</th><th>Location</th><th>Status</th></tr>
+                <tr><td>DREAM Research AI Foundations</td><td>02-evidence/technical/dream-research-ai-foundations.md</td><td><span class="badge badge-success">✓ Complete</span></td></tr>
+                <tr><td>Quotech Project Context</td><td>02-evidence/technical/quotech-comprehensive-project-context.md</td><td><span class="badge badge-success">✓ Complete</span></td></tr>
+                <tr><td>GitLab Repository Evidence</td><td>02-evidence/technical/gitlab-repository-evidence.md</td><td><span class="badge badge-success">✓ Complete</span></td></tr>
+                <tr><td>Notion Research Documentation</td><td>02-evidence/technical/notion-research-documentation.md</td><td><span class="badge badge-success">✓ Complete</span></td></tr>
+            </table>
+
+            <h3>Research Notes</h3>
+            <table>
+                <tr><th>Document</th><th>Location</th><th>Status</th></tr>
+                <tr><td>FY25 Research Journal</td><td>02-evidence/research-notes/FY25-Research-Journal.md</td><td><span class="badge badge-success">✓ Complete</span></td></tr>
+                <tr><td>Existing Knowledge Search</td><td>02-evidence/research-notes/FY25-Existing-Knowledge-Search.md</td><td><span class="badge badge-success">✓ Complete</span></td></tr>
+            </table>
+
+            <h3>Code Repositories</h3>
+            <table>
+                <tr><th>Repository</th><th>Platform</th><th>Status</th></tr>
+                <tr><td>quotech-frontend</td><td>GitLab</td><td><span class="badge badge-success">✓ Documented</span></td></tr>
+                <tr><td>quotech-backend</td><td>GitLab</td><td><span class="badge badge-success">✓ Documented</span></td></tr>
+                <tr><td>billing-frontend</td><td>GitLab</td><td><span class="badge badge-success">✓ Documented</span></td></tr>
+            </table>
+        </section>
+
+        <!-- Documents Section -->
+        <section id="documents" class="section">
+            <h2>📄 Associated Documents</h2>
+
+            <h3>Filing Documents</h3>
+            <div>
+                <a href="#" class="doc-link">📋 FY25-RDTI-Application-Content.md</a>
+                <a href="#" class="doc-link">📋 FY25-Core-Activities-Complete.md</a>
+            </div>
+
+            <h3>Evidence Documents</h3>
+            <div>
+                <a href="#" class="doc-link">📊 EVIDENCE-INDEX-FY25.md</a>
+                <a href="#" class="doc-link">📓 FY25-Research-Journal.md</a>
+                <a href="#" class="doc-link">🔍 FY25-Existing-Knowledge-Search.md</a>
+            </div>
+
+            <h3>Technical Documentation</h3>
+            <div>
+                <a href="#" class="doc-link">🧠 dream-research-ai-foundations.md</a>
+                <a href="#" class="doc-link">📐 quotech-comprehensive-project-context.md</a>
+                <a href="#" class="doc-link">💻 gitlab-repository-evidence.md</a>
+            </div>
+
+            <h3>Financial Records</h3>
+            <div>
+                <a href="#" class="doc-link">💰 xero-rdti-accounts-evidence.md</a>
+                <a href="#" class="doc-link">📊 fy25-rdti-cost-summary.md</a>
+                <a href="#" class="doc-link">⏱️ timesheet-summary-fy25.md</a>
+            </div>
+
+            <h3>Previous Applications</h3>
+            <div>
+                <a href="#" class="doc-link">📄 FY23 RDTI.pdf</a>
+                <a href="#" class="doc-link">📄 FY24 RDTI.pdf</a>
+                <a href="#" class="doc-link">📊 previous-rdti-filings-analysis.md</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>Bravada Group Pty Ltd</strong> | ABN 58167664815</p>
+        <p>Unit 3, 10 Pilgrim Court, Ringwood VIC 3134</p>
+        <p>Document generated: <span id="gen-date"></span></p>
+        <p style="margin-top: 1rem; opacity: 0.7;">R&amp;D Tax Incentive Application FY2024-25</p>
+    </footer>
+
+    <script>
+        // Set generation date
+        document.getElementById("gen-date").textContent = new Date().toLocaleDateString("en-AU", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+        });
+
+        // Copy helper
+        function copyText(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = element.nextElementSibling;
+                const originalText = btn.textContent;
+                btn.textContent = "✓ Copied!";
+                btn.style.background = "#38a169";
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = "";
+                }, 2000);
+            });
+        }
+
+        // Accordion toggle
+        function toggleAccordion(header) {
+            const accordion = header.parentElement;
+            accordion.classList.toggle("open");
+        }
+
+        // Smooth scroll for nav links
+        document.querySelectorAll(".nav-tabs a").forEach((link) => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute("href"));
+                if (target) {
+                    target.scrollIntoView({ behavior: "smooth" });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
