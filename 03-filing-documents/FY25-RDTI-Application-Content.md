@@ -155,14 +155,14 @@ Using typical construction/technical salary bands and the documented R&D time al
 
 ## Project Duration
 
-**Jul 2022 to Jun 2027**
+**Jul 2022 to Jun 2030**
 
 ---
 
 ## Total Project Budget
 
-**AUD 2,500,000.00**  
-(Total eligible R&D expenditure over the project life, including prior years and anticipated future expenditure)
+**AUD 5,500,000.00**  
+(Total eligible R&D expenditure over the project life, including prior years and anticipated future expenditure. The project is building a neurosymbolic AI capable of digesting 10,000+ documents with micro-agent orchestration for construction document intelligence.)
 
 ---
 
@@ -306,8 +306,8 @@ Bravada bears both the development risk and will receive any future commercial b
 
 For this project we are registering **two core R&D activities** for FY25:
 
-1. **Core Activity 1: Context Engine and Document Classification Experiments** (Reference: PQYAQTS17)
-2. **Core Activity 2: Quote Parsing and Cost Extraction Experiments** (Reference: P1SHYTK8Z)
+1. **Core Activity 1: Neurosymbolic Context Engine and Document Classification Experiments** (Reference: PQYAQTS17)
+2. **Core Activity 2: Quote Intelligence, Cost Extraction and Micro-Agent Experiments** (Reference: P1SHYTK8Z)
 
 **Supporting activities** (not registered as core) include:
 - Integration of experimental components into billing, timesheet and BI modules
