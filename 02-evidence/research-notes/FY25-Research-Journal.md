@@ -39,7 +39,7 @@
 **Software Stack Established**:
 - Python 3.11 with PyTorch 2.0, Transformers 4.35
 - Node.js 20 LTS for API services
-- React 19 + Vite 6 for frontend
+- React (SPA) + Vite for frontend
 - Redis 7 for caching layer
 - ChromaDB for vector storage
 - Neo4j 5.x for graph relationships
@@ -397,20 +397,20 @@ For each refinement cycle:
 
 ---
 
-### Week 31-34: Chain-of-Thought Logging Implementation
+### Week 31-34: Decision Trace Logging Implementation
 
 **Date**: 1-28 February 2025
 
 **Objective**: Implement auditable logging for all AI decisions
 
 **Activities**:
-- Created COT_Logs table in database schema
+- Created decision_trace_logs table in database schema
 - Implemented logging at each decision point
-- Built dashboard for COT visualization
+- Built dashboard for trace visualization
 
 **Schema**:
 ```sql
-CREATE TABLE cot_logs (
+CREATE TABLE decision_trace_logs (
   id UUID PRIMARY KEY,
   timestamp TIMESTAMP,
   query_id UUID,

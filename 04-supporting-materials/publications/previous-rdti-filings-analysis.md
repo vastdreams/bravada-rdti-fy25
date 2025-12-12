@@ -243,7 +243,7 @@ This document analyzes Bravada Group's previous R&D Tax Incentive applications f
 ### Structural Consistency
 1. **Maintain Project ID**: PBN3C99CP for continuity
 2. **Use consistent project name** with slight evolution
-3. **Keep duration at Jul 2022 - Jun 2026** as originally stated
+3. **Update duration to Jul 2022 - Jun 2030** to reflect expanded project scope
 4. **Update ANZSRC to 4602 Artificial intelligence**
 
 ### Hypothesis Best Practices

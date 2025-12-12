@@ -33,8 +33,8 @@
 | **Filing Year** | FY25 (Financial Year ending 30 June 2025) |
 | **Total R&D Expenditure** | $771,419.27 (Xero verified) |
 | **Expected R&D Refund** | $335,567.38 (at 43.5%) |
-| **Expected Total Spend** | $1,500,000 (over project life) |
-| **Project Duration** | July 2022 to June 2025 (ongoing) |
+| **Expected Total Spend** | $5,500,000 (over project life to 2030) |
+| **Project Duration** | July 2022 to June 2030 |
 | **R&D Location** | 3134 (Ringwood, VIC, Australia) |
 
 ## Company Information

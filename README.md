@@ -70,8 +70,8 @@ This repository contains all documentation, evidence, and filing materials for *
 - 5 AI-Driven Agentic Modules for Construction Sub-Contracting
 - **R&D Expenditure (FY25)**: $771,419.27 (Xero verified ✅)
 - **Expected R&D Refund**: $335,567.38 (at 43.5%)
-- **Total Project Budget**: $1,500,000 (over project life)
-- Duration: July 2022 - June 2025
+- **Total Project Budget**: $5,500,000 (over project life to 2030)
+- Duration: July 2022 - June 2030
 
 ## Company Information
 
@@ -118,7 +118,7 @@ RDTI Bravada/
 | **Filing Period** | FY25 (1 July 2024 - 30 June 2025) |
 | **Submission Deadline** | ~April 2026 (10 months post FY end) |
 | **Project Start Date** | July 2022 |
-| **Project End Date** | June 2025 (ongoing) |
+| **Project End Date** | June 2030 |
 
 ## The Five AI Modules (Quotech)
 
