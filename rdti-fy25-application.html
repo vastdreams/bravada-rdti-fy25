@@ -255,8 +255,47 @@
                 <tr><td>Field of Research</td><td>46 Information and Computing Sciences / 4602 Artificial Intelligence</td></tr>
             </table>
             
+            <h3>Project Objectives</h3>
+            <div class="copy-block">
+                <label>Portal Field: "What are the objectives of this project?"</label>
+                <button class="copy-btn" onclick="copyContent(this)">📋 Copy</button>
+                <div class="content">The objective of this project is to investigate and resolve specific technical uncertainties in the field of applied artificial intelligence and information retrieval, with application to construction sub-contractor document processing.
+
+TECHNICAL KNOWLEDGE GAP:
+Existing techniques for document classification, semantic retrieval and structured data extraction (including retrieval-augmented generation, vector search, and transformer-based parsing) have been developed and tested primarily on general-purpose corpora such as Wikipedia, news articles and enterprise documents. It is not known whether these techniques, individually or in combination, can achieve the accuracy, latency and reliability thresholds required for real-time operational use on the heterogeneous, domain-specific document types that characterise construction sub-contracting (variations, day sheets, supplier quotes in inconsistent formats, QA records, etc.).
+
+FIELD OF SCIENCE/TECHNOLOGY:
+The experimental work sits within the field of Information and Computing Sciences (ANZSRC Division 46), specifically Artificial Intelligence (Group 4602). The project draws on techniques from information retrieval, natural language processing, graph-based knowledge representation, and supervised classification.
+
+PRIMARY EXPERIMENTAL QUESTIONS:
+1. Context and retrieval architecture (Core Activity 1): Can a hybrid architecture combining graph-based document relationships, vector embeddings and usage-driven edge weighting achieve classification accuracy above 85% and retrieval latency below 500ms P95 on real construction document corpora?
+
+2. Quote parsing and cost extraction (Core Activity 2): Can an OCR and model-based parsing pipeline reliably extract structured cost data from the variety of quote formats used by construction suppliers, with field-level accuracy above 90% for structured formats?
+
+FY25-SPECIFIC UNCERTAINTIES:
+By the start of FY25 (1 July 2024), several technical questions remained unresolved from prior years' work:
+
+From Core Activity 1:
+• Prior work established that a pure memory-tree architecture was unsuitable. FY25 needed to determine whether the alternative neurosymbolic approach could achieve required accuracy and latency thresholds.
+• Whether usage-driven edge weighting ("neuroplasticity") would improve or degrade retrieval over time was untested.
+• Multi-signal classification had shown promise but had not been systematically benchmarked against single-signal baselines at scale.
+
+From Core Activity 2:
+• Quote parsing experiments in prior years had not yet achieved target accuracy on the full range of format types.
+• Whether LLM-based semantic reasoning could improve column mapping over pure fuzzy matching was unknown.
+• Anomaly detection had not been calibrated to determine achievable detection/false-positive trade-offs.
+
+The FY25 experimental work focused specifically on resolving these remaining uncertainties through the experiments described in each core activity.
+
+PURPOSE:
+The primary purpose of the experimental work is to generate new knowledge about how these AI and information retrieval techniques behave in the construction sub-contractor domain, and to determine the limits of their applicability.</div>
+            </div>
+
+            <h3>Core Activities Summary</h3>
             <div class="info-box">
-                <strong>Project Vision:</strong> Building a neurosymbolic AI capable of digesting 10,000+ construction documents with micro-agent orchestration for intelligent document processing, quote extraction, and business intelligence.
+                <p><strong>Core Activity 1</strong> (Ref: PQYAQTS17) addresses <strong>Project Question 1</strong>: Neurosymbolic Context Engine and Document Classification Experiments — investigating whether a hybrid graph + vector + usage-weighted architecture can meet accuracy and latency targets.</p>
+                <p style="margin-top: 0.5rem;"><strong>Core Activity 2</strong> (Ref: P1SHYTK8Z) addresses <strong>Project Question 2</strong>: Quote Intelligence, Cost Extraction and Micro-Agent Experiments — investigating whether AI can reliably extract structured cost data from diverse construction quote formats.</p>
+                <p style="margin-top: 0.5rem;"><strong>Supporting activities</strong> (not core): Integration into production modules, UI development, pilot deployment infrastructure, and routine data pipeline work.</p>
             </div>
 
             <h3>Contact Details</h3>
