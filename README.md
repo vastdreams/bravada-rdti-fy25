@@ -28,8 +28,8 @@
 
 | Resource | URL |
 |----------|-----|
-| **Live Website** | http://3.25.175.69 |
-| **RDTI Application** | http://3.25.175.69/rdti-fy25-application.html |
+| **Live Website** | http://3.26.168.188 |
+| **RDTI Application** | http://3.26.168.188/rdti-fy25-application.html |
 | **GitHub Repository** | https://github.com/vastdreams/bravada-rdti-fy25 |
 
 ### Branches
