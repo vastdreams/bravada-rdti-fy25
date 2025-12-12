@@ -14,7 +14,6 @@
             --light: #f7fafc;
             --dark: #1a202c;
             --border: #e2e8f0;
-            --s3-base: https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -72,6 +71,10 @@
             color: var(--secondary);
             margin: 1.5rem 0 1rem 0;
         }
+        .section h4 {
+            color: var(--dark);
+            margin: 1rem 0 0.5rem 0;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -128,9 +131,18 @@
             padding: 1rem;
             margin: 1rem 0;
         }
-        .evidence-list { list-style: none; }
-        .evidence-list li { padding: 0.5rem 0; }
-        .evidence-list li:before { content: "✓ "; color: var(--accent); font-weight: bold; }
+        .info-box {
+            background: #ebf8ff;
+            border-left: 4px solid var(--secondary);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        .warning-box {
+            background: #fffbeb;
+            border-left: 4px solid var(--warning);
+            padding: 1rem;
+            margin: 1rem 0;
+        }
         .download-btn {
             display: inline-block;
             padding: 0.4rem 0.8rem;
@@ -141,17 +153,13 @@
             font-size: 0.85rem;
             transition: all 0.2s;
         }
-        .download-btn:hover {
-            background: #2f855a;
-            transform: translateY(-1px);
-        }
+        .download-btn:hover { background: #2f855a; transform: translateY(-1px); }
         .download-btn.pdf { background: #e53e3e; }
         .download-btn.pdf:hover { background: #c53030; }
         .download-btn.xlsx { background: #38a169; }
         .download-btn.xlsx:hover { background: #2f855a; }
         .download-btn.png { background: #805ad5; }
         .download-btn.png:hover { background: #6b46c1; }
-        .file-row td:first-child { font-family: monospace; font-size: 0.9rem; }
         .folder-header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
@@ -160,11 +168,35 @@
             margin: 1.5rem 0 0.5rem 0;
             font-weight: 600;
         }
-        .info-box {
-            background: #ebf8ff;
-            border-left: 4px solid var(--secondary);
+        .tech-card {
+            background: #f8f9fa;
+            border: 1px solid var(--border);
+            border-radius: 8px;
             padding: 1rem;
+            margin: 0.5rem 0;
+        }
+        .tech-card h4 { margin-top: 0; color: var(--primary); }
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
             margin: 1rem 0;
+        }
+        .module-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        .module-card h4 { color: var(--primary); margin-bottom: 0.5rem; }
+        .tag {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            background: var(--secondary);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-right: 0.25rem;
         }
         footer {
             background: var(--dark);
@@ -192,10 +224,13 @@
             <a href="#finance">Finance</a>
             <a href="#core1">Core Activity 1</a>
             <a href="#core2">Core Activity 2</a>
+            <a href="#context">Full Project Context</a>
             <a href="#files">📁 All Files</a>
         </nav>
 
+        <!-- ========================================== -->
         <!-- OVERVIEW SECTION -->
+        <!-- ========================================== -->
         <section id="overview" class="section">
             <h2>📊 Application Overview</h2>
             <table>
@@ -203,20 +238,46 @@
                 <tr><td>Tracking ID</td><td>P8QFCP4CW</td></tr>
                 <tr><td>Company Name</td><td>BRAVADA GROUP PTY LTD</td></tr>
                 <tr><td>ABN</td><td>58167664815</td></tr>
+                <tr><td>ACN</td><td>167664815</td></tr>
                 <tr><td>Income Period</td><td>01 Jul 2024 - 30 Jun 2025</td></tr>
+                <tr><td>ANZSIC Division</td><td>E - CONSTRUCTION</td></tr>
+                <tr><td>ANZSIC Class</td><td>3299 Other Construction Services n.e.c.</td></tr>
+            </table>
+
+            <h3>Project Information</h3>
+            <table>
+                <tr><th>Field</th><th>Value</th></tr>
                 <tr><td>Project Name</td><td>Quotech: AI-Driven Labor Efficiency and Quoting Analysis System</td></tr>
                 <tr><td>Project ID</td><td>PBN3C99CP</td></tr>
                 <tr><td>Duration</td><td>Jul 2022 to Jun 2030</td></tr>
                 <tr><td>Total Budget</td><td>AUD 5,500,000.00</td></tr>
                 <tr><td>FY25 R&D Expenditure</td><td>AUD 771,419.00</td></tr>
+                <tr><td>Field of Research</td><td>46 Information and Computing Sciences / 4602 Artificial Intelligence</td></tr>
             </table>
             
             <div class="info-box">
                 <strong>Project Vision:</strong> Building a neurosymbolic AI capable of digesting 10,000+ construction documents with micro-agent orchestration for intelligent document processing, quote extraction, and business intelligence.
             </div>
+
+            <h3>Contact Details</h3>
+            <table>
+                <tr><th>Role</th><th>Name</th><th>Contact</th></tr>
+                <tr><td>Primary Contact (CEO)</td><td>Gary McMahon</td><td>gary.mcmahon@bravada.com.au | 0419546264</td></tr>
+                <tr><td>Tax Agent</td><td>Chander Dhawan</td><td>cdhawanca@gmail.com | 0421820275 | Reg: 78394004</td></tr>
+            </table>
+
+            <h3>R&D Employees</h3>
+            <table>
+                <tr><th>Metric</th><th>Value</th></tr>
+                <tr><td>Total Employees (30 Jun 2025)</td><td>50 (FTE)</td></tr>
+                <tr><td>R&D FTE</td><td>8 FTE</td></tr>
+                <tr><td>R&D Contractors</td><td>2</td></tr>
+            </table>
         </section>
 
+        <!-- ========================================== -->
         <!-- FINANCE SECTION -->
+        <!-- ========================================== -->
         <section id="finance" class="section">
             <h2>💰 Finance Summary</h2>
             <table>
@@ -225,7 +286,7 @@
                 <tr><td>415</td><td>R&amp;D Contracted Services</td><td>$187,425.36</td></tr>
                 <tr><td>646</td><td>R&amp;D IT &amp; Subscriptions</td><td>$41,656.87</td></tr>
                 <tr><td>644</td><td>R&amp;D Rental Cost</td><td>$21,924.44</td></tr>
-                <tr><td colspan="2"><strong>TOTAL</strong></td><td><strong>$771,419.27</strong></td></tr>
+                <tr><td colspan="2"><strong>TOTAL FY25 R&D</strong></td><td><strong>$771,419.27</strong></td></tr>
             </table>
 
             <h3>Expenditure by Core Activity</h3>
@@ -235,63 +296,679 @@
                 <tr><td>Core 2: Quote Intelligence & Micro-Agents</td><td>$385,709.00</td><td>$2,405,709.00</td></tr>
                 <tr><td><strong>TOTAL</strong></td><td><strong>$771,419.00</strong></td><td><strong>$5,071,419.00</strong></td></tr>
             </table>
+
+            <h3>Budget Timeline</h3>
+            <table>
+                <tr><th>Period</th><th>Core Activity 1</th><th>Core Activity 2</th><th>Total</th></tr>
+                <tr><td>Prior to 2024/25</td><td>$580,000.00</td><td>$320,000.00</td><td>$900,000.00</td></tr>
+                <tr><td>2024/25 (this application)</td><td>$385,710.00</td><td>$385,709.00</td><td>$771,419.00</td></tr>
+                <tr><td>2025/26 (anticipated)</td><td>$450,000.00</td><td>$450,000.00</td><td>$900,000.00</td></tr>
+                <tr><td>2026/27 (anticipated)</td><td>$500,000.00</td><td>$500,000.00</td><td>$1,000,000.00</td></tr>
+                <tr><td>Post 2026/27 (anticipated)</td><td>$750,000.00</td><td>$750,000.00</td><td>$1,500,000.00</td></tr>
+            </table>
+
+            <h3>Company Financials</h3>
+            <table>
+                <tr><th>Metric</th><th>Value</th></tr>
+                <tr><td>Taxable Income</td><td>AUD 195,852.07 (Profit)</td></tr>
+                <tr><td>Aggregated Turnover</td><td>AUD 12,760,872.01</td></tr>
+                <tr><td>Export Revenue</td><td>AUD 0.00</td></tr>
+            </table>
         </section>
 
-        <!-- CORE ACTIVITY 1 SECTION -->
+        <!-- ========================================== -->
+        <!-- CORE ACTIVITY 1 - FULL DETAIL -->
+        <!-- ========================================== -->
         <section id="core1" class="section">
-            <h2>🔬 Core Activity 1: Neurosymbolic Context Engine</h2>
+            <h2>🔬 Core Activity 1: Neurosymbolic Context Engine and Document Classification Experiments</h2>
+            
+            <h3>Basic Information</h3>
             <table>
                 <tr><th>Field</th><th>Value</th></tr>
+                <tr><td>Activity Name</td><td>Neurosymbolic Context Engine and Document Classification Experiments</td></tr>
                 <tr><td>Reference</td><td>PQYAQTS17</td></tr>
-                <tr><td>Duration</td><td>Sep 2022 - Jun 2030</td></tr>
+                <tr><td>Start Date</td><td>09/2022</td></tr>
+                <tr><td>End Date</td><td>06/2030</td></tr>
+                <tr><td>Related Project</td><td>AI-Driven Labor Efficiency and Quoting Analysis System</td></tr>
+                <tr><td>Excluded from core?</td><td>No</td></tr>
+                <tr><td>Performed by</td><td>Only the R&D Company</td></tr>
+                <tr><td>Covered by Determination?</td><td>No</td></tr>
+                <tr><td>Commenced after income period?</td><td>No</td></tr>
                 <tr><td>FY25 Expenditure</td><td>$385,710.00</td></tr>
             </table>
 
-            <div class="hypothesis-box">
-                <h3>Hypotheses (FY25)</h3>
-                <p><strong>H1:</strong> Multi-signal classification outperforms single-signal baselines by ≥10 points (macro-F1).</p>
-                <p><strong>H2:</strong> Neurosymbolic graph + vector retrieval outperforms flat vector by ≥15% (precision@5).</p>
-                <p><strong>H3:</strong> Usage-driven edge weighting improves retrieval by ≥5 points over 4 weeks.</p>
-                <p><strong>H4:</strong> Architecture achieves P95 latency &lt;500ms at 10k+ document scale.</p>
+            <h3>Describe the core R&D activity</h3>
+            <div class="copy-block">
+                <label>Portal Field: "Describe the core R&D activity"</label>
+                <button class="copy-btn" onclick="copyContent(this)">📋 Copy</button>
+                <div class="content">This core activity comprises the experimental work to design, implement and evaluate a neurosymbolic context engine for construction documents.
+
+Plain-language explanation of key terms:
+• Neurosymbolic architecture: A hybrid approach combining explicit graph-based relationships between documents (symbolic) with AI-generated similarity scores from neural networks (neural). This is distinct from pure vector search or pure rule-based systems.
+• Micro-agent orchestration: Multiple small, specialised AI routines (agents), each handling one type of decision (e.g., "Is this a Bill?", "Is this a PO?"), coordinated by a controller that routes documents and synthesises results.
+
+FY25-specific experimental focus:
+
+At the start of FY25, we had established from prior work that a pure memory-tree architecture was unsuitable for our document volumes. The key remaining uncertainties for FY25 were:
+
+1. Neurosymbolic graph and vector memory architecture
+Would representing documents as page-level nodes in a symbolic graph, with similarity edges derived from neural embeddings and refined by model-assisted filtering, yield better retrieval performance than flat vector indexing alone?
+
+2. Usage-driven edge weighting ("neuroplasticity")
+Would strengthening graph edges based on retrieval usage patterns improve accuracy over time, or would it amplify noise and degrade performance?
+
+3. Multi-signal document classification with micro-agent orchestration
+We did not know in advance whether a micro-agent architecture (category-specialist agents + coordinator) would materially improve classification accuracy over a monolithic multi-class model.
+
+4. Latency and scaling behaviour at 10k+ document scale
+Would parallelisation, caching and context pre-loading strategies bring P95 latency below 500ms at 10,000+ document scale?
+
+What is NOT part of this core activity:
+Integration of the experimental context engine into production modules (billing, timesheets, BI interfaces), user interface development, and routine data pipeline work are treated as supporting activities.</div>
             </div>
 
-            <div class="conclusion-box">
-                <h3>Conclusions (FY25)</h3>
-                <p><strong>H1 SUPPORTED:</strong> 88% macro-F1 vs 71% single-signal (+17 points).</p>
-                <p><strong>H2 SUPPORTED:</strong> 84% precision@5 vs 68% flat vector (+16 points).</p>
-                <p><strong>H3 SUPPORTED:</strong> 76% → 84% accuracy over 4 weeks (+8 points, p&lt;0.01).</p>
-                <p><strong>H4 SUPPORTED:</strong> P95 = 420ms with caching (780ms without).</p>
+            <h3>How did the company determine that the outcome could not be known in advance?</h3>
+            <div class="copy-block">
+                <label>Portal Field: "How did the company determine that the outcome could not be known in advance?"</label>
+                <button class="copy-btn" onclick="copyContent(this)">📋 Copy</button>
+                <div class="content">THE COMPETENT PROFESSIONAL TEST
+
+Even a competent AI/ML engineer with experience in document AI and construction software could not determine in advance whether:
+• Our specific neurosymbolic architecture would achieve the required accuracy thresholds (>85% classification, >80% retrieval precision) on real construction document corpora;
+• Usage-driven edge weighting would improve or degrade retrieval over time in this domain;
+• Micro-agent orchestration would outperform a monolithic classifier for construction document categories;
+• The architecture could meet latency targets (<500ms P95) at 10,000+ document scale.
+
+These outcomes required experimentation because they depend on domain-specific factors (document heterogeneity, terminology, format variation) that cannot be extrapolated from prior work on general corpora.
+
+SOURCES INVESTIGATED
+
+1. Academic and technical literature
+• Papers on retrieval-augmented generation (RAG), graph-based retrieval, and vector search (arXiv, ACL Anthology, IEEE)
+• Literature on neurosymbolic AI combining neural networks with symbolic reasoning
+• Literature on document classification using transformer models and multi-modal signals
+• Published benchmarks on document understanding tasks (DocVQA, LayoutLM papers, etc.)
+• Research on multi-agent systems and agent orchestration
+
+2. Commercial products and tools
+• Document management and classification tools marketed to construction (Procore, Aconex, etc.)
+• General-purpose AI document tools (OpenAI, Anthropic, Google Document AI, DeepSeek)
+• Vector database and RAG frameworks (Pinecone, Weaviate, LangChain, LlamaIndex)
+• Multi-agent frameworks (AutoGen, CrewAI, etc.)
+
+3. Expert consultation
+• Discussions with AI engineers experienced in retrieval systems and agent architectures
+• Discussions with construction software specialists about document workflows
+• Consultation with researchers working on neurosymbolic approaches
+
+WHAT EXISTING KNOWLEDGE DOES NOT RESOLVE
+
+1. Classification accuracy on construction categories
+No published benchmark exists for classifying construction sub-contractor documents into the categories we require (Bills, POs, Contracts, Variations, Day Sheets, QA records).
+
+2. Behaviour of usage-driven edge weighting in neurosymbolic graphs
+The idea of strengthening graph edges based on retrieval patterns in a neurosymbolic architecture is novel for document management. Whether this converges to improved accuracy or amplifies noise is an empirical question.
+
+3. Latency profile at 10k+ document scale
+The specific latency profile of our hybrid architecture (summarisation via DeepSeek → embedding → graph traversal → LLM reasoning) at the scale and heterogeneity of 10,000+ real sub-contractor documents cannot be predicted from first principles.
+
+4. Micro-agent orchestration vs monolithic classification
+Whether decomposing classification into specialist micro-agents with a coordinator would outperform a single multi-class model in this domain could only be determined through controlled experiments.</div>
             </div>
+
+            <h3>Hypotheses (FY25)</h3>
+            <div class="hypothesis-box">
+                <div class="copy-block" style="background: transparent; border: none; padding: 0;">
+                    <label>Portal Field: "What is the hypothesis?"</label>
+                    <button class="copy-btn" onclick="copyContent(this)">📋 Copy</button>
+                    <div class="content">H1: Multi-signal classification outperforms single-signal baselines
+A classifier that combines subject, sender, thread context, body content and attachment signals will achieve classification accuracy at least 10 percentage points higher (measured by macro-F1) than the best single-signal classifier on construction document categories.
+
+H2: Neurosymbolic graph + vector retrieval outperforms flat vector indexing
+For context-heavy queries on construction documents, a hybrid retrieval approach using symbolic graph traversal plus neural vector similarity will return more relevant results (measured by precision@5) than flat vector search alone.
+
+H3: Usage-driven edge weighting improves retrieval over time
+Strengthening graph edges based on retrieval usage over a four-week period will lead to measurable improvement in retrieval accuracy (at least 5 percentage points) and reduction in average traversal depth, compared to static edge weights.
+
+H4: Neurosymbolic architecture can meet latency targets at scale
+With parallelisation, caching and context pre-loading strategies, the neurosymbolic architecture can achieve P95 latency below 500ms on realistic workloads (10,000+ documents, concurrent queries).</div>
+                </div>
+            </div>
+
+            <h3>Experiments (FY25)</h3>
+            <div class="copy-block">
+                <label>Portal Field: "What is the experiment and how did it test the hypothesis?"</label>
+                <button class="copy-btn" onclick="copyContent(this)">📋 Copy</button>
+                <div class="content">SYSTEMATIC PROGRESSION OF WORK
+
+The FY25 experimental work followed a systematic progression: hypothesis formulation → experiment design → controlled execution → observation → evaluation → conclusions.
+
+EXPERIMENT 1: Classification comparison (H1)
+• Dataset: 1,500 manually labelled emails and documents from two pilot companies, covering all target categories.
+• Method: Trained and evaluated five classifiers: (a) subject-only, (b) sender-only, (c) body-content-only, (d) attachment-only, (e) multi-signal combining all features with micro-agent routing.
+• Metrics: Precision, recall, macro-F1 by category and overall.
+• Baseline: Best single-signal classifier.
+• Acceptance threshold: Multi-signal must exceed best single-signal by ≥10 percentage points on macro-F1.
+
+EXPERIMENT 2: Neurosymbolic retrieval comparison (H2)
+• Dataset: 500 "known answer" queries constructed from pilot company data, with ground-truth relevant documents.
+• Method: Compared (a) flat vector search using BAAI/bge-large embeddings, (b) symbolic graph traversal from query-matched nodes, (c) neurosymbolic hybrid combining both with DeepSeek-based re-ranking.
+• Metrics: Precision@5, recall@10, mean reciprocal rank.
+• Baseline: Flat vector search.
+• Acceptance threshold: Hybrid must exceed flat vector by ≥15% on precision@5.
+
+EXPERIMENT 3: Usage-driven edge weighting (H3)
+• Setup: Deployed experimental system at one pilot company for four weeks.
+• Method: Week 1 baseline with static edge weights. Weeks 2-4 with usage-based weight updates. Sampled queries each week and measured retrieval accuracy against held-out ground truth.
+• Metrics: Retrieval accuracy, average graph traversal depth.
+• Design note: This was explicitly an experiment to test hypothesis H3. The primary purpose was experimental observation, not commercial service delivery.
+• Acceptance threshold: ≥5 percentage point improvement by week 4 vs week 1.
+
+EXPERIMENT 4: Latency profiling at scale (H4)
+• Setup: Loaded experimental system with 10,000+ documents from pilot data. Simulated concurrent queries.
+• Method: Measured latency distribution (P50, P95, P99) for retrieval pipeline. Tested baseline vs parallel traversal vs parallel + Redis caching vs context pre-loading.
+• Acceptance threshold: P95 < 500ms with parallelisation and caching.</div>
+            </div>
+
+            <h3>Evaluation of Results</h3>
+            <div class="copy-block">
+                <label>Portal Field: "How did you evaluate results?"</label>
+                <button class="copy-btn" onclick="copyContent(this)">📋 Copy</button>
+                <div class="content">CLASSIFICATION EXPERIMENTS:
+• Computed precision, recall and F1 for each category and overall macro-F1
+• Analysed confusion matrices to identify systematic errors
+• Compared multi-signal with micro-agent routing vs each single-signal baseline
+
+NEUROSYMBOLIC RETRIEVAL EXPERIMENTS:
+• Computed precision@5, recall@10 and MRR for each retrieval method
+• Reviewed sample queries where hybrid outperformed or underperformed flat vector to understand failure modes
+• Analysed reasoning traces to understand decision quality
+
+USAGE-DRIVEN WEIGHTING:
+• Plotted retrieval accuracy and traversal depth by week
+• Tested statistical significance of week 4 vs week 1 improvement using paired t-test on query-level accuracy
+• Reviewed edge weight distributions to check for pathological concentration
+
+LATENCY EXPERIMENTS:
+• Plotted latency distributions (histograms, percentiles)
+• Identified bottlenecks via tracing (API calls, graph traversal, embedding generation)
+• Confirmed reproducibility across multiple runs
+
+BASELINE COMPARISONS:
+All experimental methods were compared against simple baselines (keyword matching, flat vector, static weights) to confirm that added complexity delivered measurable improvement.</div>
+            </div>
+
+            <h3>Conclusions (FY25)</h3>
+            <div class="conclusion-box">
+                <div class="copy-block" style="background: transparent; border: none; padding: 0;">
+                    <label>Portal Field: "Conclusions reached"</label>
+                    <button class="copy-btn" onclick="copyContent(this)">📋 Copy</button>
+                    <div class="content">H1 (Multi-signal classification): SUPPORTED
+The multi-signal classifier with micro-agent routing achieved 88% macro-F1 overall. Bills, POs and Contracts exceeded 92%. Day Sheets and QA records reached 78-82%. The best single-signal baseline (body-content) achieved 71% macro-F1. The multi-signal approach outperformed by 17 percentage points, exceeding the 10-point threshold.
+
+H2 (Neurosymbolic hybrid retrieval): SUPPORTED
+Neurosymbolic hybrid retrieval achieved 84% precision@5 vs 68% for flat vector search, a 16 percentage point improvement exceeding the 15% threshold. Symbolic graph traversal alone achieved 72%, confirming that the neurosymbolic combination is necessary.
+
+H3 (Usage-driven weighting): SUPPORTED
+Retrieval accuracy improved from 76% (week 1) to 84% (week 4), an 8 percentage point improvement exceeding the 5-point threshold. Average traversal depth decreased from 3.2 hops to 2.4 hops. The improvement was statistically significant (p < 0.01).
+
+H4 (Latency at scale): SUPPORTED with conditions
+With parallelisation, caching and context pre-loading, P95 latency was 420ms at 10k+ document scale, meeting the 500ms threshold. Without caching, P95 was 780ms. Conclusion: caching and context pre-loading are required components, not optional optimisations.
+
+ADDITIONAL FINDINGS:
+• Handwritten day sheets remain below acceptable accuracy (62%); explicitly out of scope for FY25.
+• Cross-company transfer: accuracy dropped 12 percentage points when applying Company A model to Company B. Approximately 200 labelled documents were required to recover performance.</div>
+                </div>
+            </div>
+
+            <h3>New Knowledge Generated</h3>
+            <div class="info-box">
+                <ol>
+                    <li><strong>Quantified performance of neurosymbolic graph + vector + usage-weighted retrieval on construction documents</strong> — 84% precision@5 at 10k+ document scale with 8 percentage point improvement from usage-driven edge updates over 4 weeks.</li>
+                    <li><strong>Multi-signal classification benchmarks for construction document categories</strong> — First known benchmarks for Bills, POs, Contracts, Variations, Day Sheets and QA records showing 88% macro-F1 for multi-signal vs ~71% for single-signal.</li>
+                    <li><strong>Latency bounds for neurosymbolic pipelines at scale</strong> — P95 latency can be held below 500ms at 10,000+ document scale with parallel traversal and caching.</li>
+                    <li><strong>Transfer learning limits between sub-contractors</strong> — Cross-company accuracy drop is approximately 12 percentage points; 200 labelled documents sufficient to recover.</li>
+                </ol>
+            </div>
+
+            <h3>Evidence Kept</h3>
+            <table>
+                <tr><th>Evidence Type</th><th>Kept?</th></tr>
+                <tr><td>Evidence of hypothesis and design of experiments</td><td>☑ Yes (written protocols, Notion pages)</td></tr>
+                <tr><td>Documented results and evaluation of experiments</td><td>☑ Yes (metrics tables, plots, notebooks)</td></tr>
+                <tr><td>Evidence of revisions in response to previous results</td><td>☑ Yes (change logs with dates and reasons)</td></tr>
+                <tr><td>Evidence of searches for current knowledge</td><td>☑ Yes (search logs, literature summaries, meeting notes)</td></tr>
+                <tr><td>Evidence that outcome could only be determined by conducting experiments</td><td>☑ Yes</td></tr>
+            </table>
+            <p><strong>Other evidence (100 characters):</strong> GitLab repos, Notion research notes (100+ pages), experiment configs, pilot observation logs</p>
         </section>
 
-        <!-- CORE ACTIVITY 2 SECTION -->
+        <!-- ========================================== -->
+        <!-- CORE ACTIVITY 2 - FULL DETAIL -->
+        <!-- ========================================== -->
         <section id="core2" class="section">
-            <h2>🔬 Core Activity 2: Quote Intelligence & Micro-Agents</h2>
+            <h2>🔬 Core Activity 2: Quote Intelligence, Cost Extraction and Micro-Agent Experiments</h2>
+            
+            <h3>Basic Information</h3>
             <table>
                 <tr><th>Field</th><th>Value</th></tr>
+                <tr><td>Activity Name</td><td>Quote Intelligence, Cost Extraction and Micro-Agent Experiments</td></tr>
                 <tr><td>Reference</td><td>P1SHYTK8Z</td></tr>
-                <tr><td>Duration</td><td>Jul 2022 - Jun 2030</td></tr>
+                <tr><td>Start Date</td><td>07/2022</td></tr>
+                <tr><td>End Date</td><td>06/2030</td></tr>
+                <tr><td>Related Project</td><td>AI-Driven Labor Efficiency and Quoting Analysis System</td></tr>
+                <tr><td>Excluded from core?</td><td>No</td></tr>
+                <tr><td>Performed by</td><td>Only the R&D Company</td></tr>
+                <tr><td>Covered by Determination?</td><td>No</td></tr>
+                <tr><td>Commenced after income period?</td><td>No</td></tr>
                 <tr><td>FY25 Expenditure</td><td>$385,709.00</td></tr>
             </table>
 
-            <div class="hypothesis-box">
-                <h3>Hypotheses (FY25)</h3>
-                <p><strong>H1:</strong> Parsing achieves ≥95% accuracy on Excel quotes, ≥80% on typed PDFs.</p>
-                <p><strong>H2:</strong> Column mapping with LLM reasoning achieves ≥90% correct.</p>
-                <p><strong>H3:</strong> Cost centre classification achieves ≥85% accuracy.</p>
-                <p><strong>H4:</strong> Anomaly detection achieves ≥90% detection at ≤5% FPR.</p>
+            <h3>Describe the core R&D activity</h3>
+            <div class="copy-block">
+                <label>Portal Field: "Describe the core R&D activity"</label>
+                <button class="copy-btn" onclick="copyContent(this)">📋 Copy</button>
+                <div class="content">This core activity comprises the experimental work to design, implement and evaluate a quote intelligence pipeline for extracting structured cost data from construction supplier quotes, regardless of format.
+
+Plain-language explanation of key terms:
+• Micro-agent orchestration: Multiple small, specialised AI routines (agents), each handling one aspect of quote processing (format recognition, field extraction, column mapping, cost classification, anomaly detection), coordinated by a controller.
+• Contextual reasoning: Using LLM-based understanding of construction terminology and supplier patterns to make decisions, rather than relying solely on pattern matching or fixed rules.
+
+FY25-specific experimental focus:
+
+At the start of FY25, quote parsing experiments in prior years had not yet achieved target accuracy on the full range of format types. The key remaining uncertainties for FY25 were:
+
+1. OCR and parsing pipeline accuracy
+Could a combination of OCR and model-based parsing reliably extract structured fields from the variety of quote formats used by construction suppliers (Excel, typed PDF, scanned)? Prior experiments showed promise but had not hit target accuracy.
+
+2. Column header mapping with semantic reasoning
+We found 50+ distinct column header variants in real quotes. Would embedding-based fuzzy matching combined with LLM semantic reasoning achieve the required mapping accuracy, or would the header diversity exceed the system's capacity?
+
+3. Cost centre classification feasibility
+No off-the-shelf classifier existed for our cost centre taxonomy (Labour, Materials, Equipment, Subcontract). Whether LLM-based contextual reasoning would improve classification over pure ML approaches was unknown.
+
+4. Anomaly detection operating characteristics
+This was not routine BI analytics but a technical feasibility question: under the specific conditions of construction quote data (irregular intervals, small samples per supplier, changing market conditions), could an anomaly detector achieve the required detection rate while maintaining acceptable false positive rates?
+
+What is NOT part of this core activity:
+Building BI dashboards, integrating outputs into billing workflows, and routine data pipeline work are supporting activities.</div>
             </div>
 
+            <h3>How did the company determine that the outcome could not be known in advance?</h3>
+            <div class="copy-block">
+                <label>Portal Field: "How did the company determine that the outcome could not be known in advance?"</label>
+                <button class="copy-btn" onclick="copyContent(this)">📋 Copy</button>
+                <div class="content">THE COMPETENT PROFESSIONAL TEST
+
+Even a competent data engineer or ML practitioner with construction experience could not determine in advance whether:
+• Our parsing pipeline would achieve ≥95% field accuracy on Excel-origin quotes and ≥80% on typed PDFs, given the format diversity we observed;
+• Embedding + LLM semantic reasoning would reliably map the 50+ column header variants to a canonical schema;
+• An LLM-augmented classifier would achieve ≥85% accuracy on construction-specific cost centres;
+• An anomaly detector could achieve ≥90% detection at ≤5% FPR under the sparse, irregular data conditions of real supplier quotes.
+
+These outcomes required experimentation because they depend on domain-specific factors (quote format diversity, terminology variation, supplier behaviour patterns) that cannot be extrapolated from prior work on general document types like invoices.
+
+SOURCES INVESTIGATED
+
+1. Academic and technical literature
+• Papers on table extraction, document layout analysis, invoice/receipt parsing
+• LayoutLM, DETR, and transformer-based document understanding
+• Anomaly detection literature for time-series and tabular data
+• Multi-agent systems and specialised agent architectures
+
+2. Commercial products and tools
+• Invoice capture tools (Abbyy, Rossum, Google Document AI)
+• Construction estimating software (Buildxact, Cubit, simPRO)
+• General OCR services (AWS Textract, Azure Form Recognizer)
+• LLM-based extraction tools (GPT-4 vision, DeepSeek, Claude)
+
+3. Expert consultation
+• Discussions with construction estimators about how quotes arrive and are processed
+• Discussions with finance staff about what accuracy and coverage they require
+• Consultation with AI engineers on micro-agent orchestration patterns
+
+WHAT EXISTING KNOWLEDGE DOES NOT RESOLVE
+
+1. Accuracy on construction quote formats
+Construction supplier quotes vary widely (Excel with different layouts, PDFs with dense tables, scans with poor quality). No published benchmark exists for this document type.
+
+2. Column mapping robustness
+We found 50+ distinct column header variants in real quotes from one pilot company. Whether fuzzy matching combined with LLM semantic reasoning can reliably map these to a canonical schema is unknown.
+
+3. Cost centre inference from line item text
+Deciding whether a line is Labour, Materials, Equipment or Subcontract requires understanding construction terminology and context. No off-the-shelf classifier exists for this taxonomy.
+
+4. Anomaly detection thresholds under real conditions
+What detection rate is achievable under sparse, irregular quote data with changing market conditions, and at what false positive rate, can only be determined through calibration on real data.</div>
+            </div>
+
+            <h3>Hypotheses (FY25)</h3>
+            <div class="hypothesis-box">
+                <div class="copy-block" style="background: transparent; border: none; padding: 0;">
+                    <label>Portal Field: "What is the hypothesis?"</label>
+                    <button class="copy-btn" onclick="copyContent(this)">📋 Copy</button>
+                    <div class="content">H1: Parsing accuracy on structured quotes
+An OCR + model-based parsing pipeline with specialised micro-agents can achieve ≥95% field-level accuracy on structured Excel-origin quotes and ≥80% on typed PDF quotes.
+
+H2: Column mapping robustness with semantic reasoning
+A fuzzy mapping approach combining embedding-based similarity with LLM semantic reasoning can correctly map ≥90% of real-world column headers to the canonical schema without manual intervention.
+
+H3: Cost centre classification accuracy
+A classifier augmented with LLM-based contextual reasoning can achieve ≥85% accuracy on assigning items to cost centres (Labour, Materials, Equipment, Subcontract, Other).
+
+H4: Anomaly detection performance
+A pricing anomaly detector using contextual reasoning about supplier patterns can achieve ≥90% detection rate on known anomalies with ≤5% false positive rate.</div>
+                </div>
+            </div>
+
+            <h3>Experiments (FY25)</h3>
+            <div class="copy-block">
+                <label>Portal Field: "What is the experiment and how did it test the hypothesis?"</label>
+                <button class="copy-btn" onclick="copyContent(this)">📋 Copy</button>
+                <div class="content">SYSTEMATIC PROGRESSION OF WORK
+
+The FY25 experimental work followed a systematic progression: hypothesis formulation → experiment design → controlled execution → observation → evaluation → conclusions.
+
+EXPERIMENT 1: Quote format census and OCR evaluation (H1)
+• Dataset: 200 quotes from pilot companies, manually tagged by format (Excel, typed PDF, scanned typed, scanned handwritten).
+• Method: Ran each through OCR pipeline with specialised micro-agents. Measured field-level accuracy against manually labelled ground truth.
+• Baseline: Raw OCR without model post-processing.
+• Acceptance thresholds: ≥95% field accuracy on Excel-origin, ≥80% on typed PDF.
+
+EXPERIMENT 2: LLM post-processing evaluation (H1 support)
+• Method: Fed raw OCR output into parsing micro-agents to correct errors. Measured improvement vs OCR-only.
+• Tracked: Error correction rate vs new error introduction rate.
+
+EXPERIMENT 3: Column mapping comparison (H2)
+• Dataset: 500+ unique column headers extracted from real quotes.
+• Method: Compared (a) Levenshtein distance, (b) token-based matching, (c) embedding-based similarity, (d) embedding + LLM semantic reasoning.
+• Baseline: Levenshtein distance.
+• Acceptance threshold: ≥90% correct at chosen confidence threshold.
+
+EXPERIMENT 4: Cost centre classifier training (H3)
+• Dataset: 5,000 labelled line items across all cost centres.
+• Method: Trained classifier using (a) text features only, (b) text + unit, (c) text + unit + historical price, (d) text + unit + LLM contextual reasoning.
+• Baseline: Text features only.
+• Acceptance threshold: ≥85% overall accuracy.
+
+EXPERIMENT 5: Anomaly detection calibration (H4)
+• Dataset: Historical quotes/invoices with 50 injected anomalies and 30 known real anomalies.
+• Method: Trained detector on unit prices and totals. Tested with and without contextual reasoning. Varied threshold to plot ROC curve.
+• Baseline: Rule-based detector with fixed thresholds.
+• Acceptance threshold: ≥90% detection at ≤5% FPR.
+
+Each experiment was documented with protocol, dataset description, run configuration and results.</div>
+            </div>
+
+            <h3>Evaluation of Results</h3>
+            <div class="copy-block">
+                <label>Portal Field: "How did you evaluate results?"</label>
+                <button class="copy-btn" onclick="copyContent(this)">📋 Copy</button>
+                <div class="content">PARSING AND OCR:
+• Field-level accuracy = (correctly extracted fields) / (total fields in ground truth)
+• Analysed error patterns by format type
+• Compared OCR-only vs OCR + micro-agent post-processing
+
+COLUMN MAPPING:
+• Accuracy = (correctly mapped headers) / (total headers)
+• Compared four matching methods on same dataset
+• Analysed cases where LLM reasoning improved or degraded mapping
+
+COST CENTRE CLASSIFICATION:
+• Computed accuracy, precision, recall by category
+• Compared classifier with and without LLM reasoning
+• Analysed misclassifications to identify systematic errors
+
+ANOMALY DETECTION:
+• Plotted ROC curve varying threshold
+• Identified detection rate at 5% FPR
+• Compared rule-based vs contextual reasoning approaches
+• Reviewed detected anomalies with finance staff to confirm they were actionable</div>
+            </div>
+
+            <h3>Conclusions (FY25)</h3>
             <div class="conclusion-box">
-                <h3>Conclusions (FY25)</h3>
-                <p><strong>H1 SUPPORTED:</strong> Excel 96%, typed PDF 83%, scanned 71%.</p>
-                <p><strong>H2 SUPPORTED:</strong> 93% correct (embedding+LLM vs 81% Levenshtein).</p>
-                <p><strong>H3 SUPPORTED:</strong> 87% accuracy (+4 points from LLM reasoning).</p>
-                <p><strong>H4 PARTIAL:</strong> 86% detection at 5% FPR (92% at 8% FPR).</p>
+                <div class="copy-block" style="background: transparent; border: none; padding: 0;">
+                    <label>Portal Field: "Conclusions reached"</label>
+                    <button class="copy-btn" onclick="copyContent(this)">📋 Copy</button>
+                    <div class="content">H1 (Parsing accuracy): SUPPORTED for structured formats
+• Excel-origin quotes: 96% field-level accuracy (exceeds 95% threshold)
+• Typed PDF quotes: 83% field-level accuracy (exceeds 80% threshold)
+• Scanned typed: 71% (usable with human review)
+• Scanned handwritten: 54% (out of scope, confirmed)
+
+H2 (Column mapping): SUPPORTED
+• Embedding + LLM semantic reasoning achieved 93% correct mapping (exceeds 90%)
+• Embedding-only: 89%, Levenshtein: 81%, token-based: 87%
+• LLM reasoning added 4 percentage points over embedding-only
+
+H3 (Cost centre classification): SUPPORTED
+• Overall accuracy 87% (exceeds 85% threshold)
+• With LLM reasoning: Materials/Equipment 91%, Labour 85%, Subcontract 82%
+• Without LLM reasoning: 83% overall
+• Main confusion: Subcontract vs Labour for labour-hire items
+
+H4 (Anomaly detection): PARTIALLY SUPPORTED
+• Rule-based at 5% FPR: 78% detection rate
+• Contextual micro-agent at 5% FPR: 86% detection (8 point improvement, but below 90% target)
+• At 8% FPR: 92% detection rate achieved
+• Conclusion: Contextual reasoning significantly improves detection; threshold choice is a business decision balancing detection vs false positives
+
+ADDITIONAL FINDINGS:
+• LLM post-processing improved field accuracy by 8 percentage points but introduced new errors in 2% of cases
+• Historical price context improved cost centre classification by 4 percentage points</div>
+                </div>
+            </div>
+
+            <h3>New Knowledge Generated</h3>
+            <div class="info-box">
+                <ol>
+                    <li><strong>Accuracy bounds for OCR + micro-agent parsing on construction quotes</strong> — 96% field-level accuracy on structured Excel-origin quotes and 83% on typed PDFs, but scanned handwritten remains below acceptable thresholds.</li>
+                    <li><strong>Comparative effectiveness of column mapping strategies</strong> — Embedding + LLM semantic reasoning outperforms embedding-only by 4 percentage points (93% vs 89%) for construction quote headers.</li>
+                    <li><strong>Construction-specific cost centre classifier</strong> — 87% accuracy for cost centre taxonomy (Labour, Materials, Equipment, Subcontract), with LLM reasoning improving accuracy by 4 percentage points.</li>
+                    <li><strong>Anomaly detection operating characteristics for construction pricing</strong> — 86% detection at 5% FPR with contextual reasoning (vs 78% rule-based). Establishes technical feasibility and informs threshold selection.</li>
+                </ol>
+            </div>
+
+            <h3>Evidence Kept</h3>
+            <table>
+                <tr><th>Evidence Type</th><th>Kept?</th></tr>
+                <tr><td>Evidence of hypothesis and design of experiments</td><td>☑ Yes (written protocols, Notion pages)</td></tr>
+                <tr><td>Documented results and evaluation of experiments</td><td>☑ Yes (metrics tables, plots, notebooks)</td></tr>
+                <tr><td>Evidence of revisions in response to previous results</td><td>☑ Yes (change logs with dates and reasons)</td></tr>
+                <tr><td>Evidence of searches for current knowledge</td><td>☑ Yes (search logs, literature summaries, meeting notes)</td></tr>
+                <tr><td>Evidence that outcome could only be determined by conducting experiments</td><td>☑ Yes</td></tr>
+            </table>
+            <p><strong>Other evidence (100 characters):</strong> Labelled quote datasets, mapping configs, classifier models, ROC plots, micro-agent logs, pilot notes</p>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- FULL PROJECT CONTEXT SECTION -->
+        <!-- ========================================== -->
+        <section id="context" class="section">
+            <h2>📚 Full Project Context</h2>
+
+            <h3>Executive Summary</h3>
+            <div class="info-box">
+                <p><strong>Quotech</strong> is an AI-driven construction project management platform designed to solve the fundamental problem of <strong>information fragmentation in subcontractor operations</strong>. The platform creates a "structured overlay" on the customer's existing Microsoft OneDrive infrastructure, transforming scattered artifacts (files, emails, quotes, variations, site data) into an organised, searchable, AI-enhanced workspace.</p>
+                <p style="margin-top: 1rem;"><strong>Core Innovation Thesis:</strong> <em>"There is no single, structured, searchable workspace per job that captures files, emails, quotes, variations, and site data together."</em></p>
+            </div>
+
+            <h3>Problem Statement</h3>
+            <table>
+                <tr><th>Source</th><th>Reality</th></tr>
+                <tr><td>Individual inboxes</td><td>Critical instructions buried in 50+ daily emails</td></tr>
+                <tr><td>Ad-hoc folders</td><td>OneDrive/SharePoint with inconsistent naming</td></tr>
+                <tr><td>Desktop downloads</td><td>Files on personal machines, not shared</td></tr>
+                <tr><td>Multiple systems</td><td>Simpro, Xero, Excel, WhatsApp</td></tr>
+                <tr><td>Paper</td><td>Day sheets, sign-offs, QA forms</td></tr>
+            </table>
+
+            <h4>Business Consequences</h4>
+            <ul>
+                <li>Nobody has the full picture of any job</li>
+                <li>Variations and instructions get missed → revenue leaks</li>
+                <li>QA and disputes are painful → evidence is buried</li>
+                <li>New team members take weeks to load context</li>
+                <li>Profit leaks undetected → no real-time cost visibility</li>
+                <li>Manual data entry → hours wasted daily</li>
+            </ul>
+
+            <h3>Target Users</h3>
+            <table>
+                <tr><th>Persona</th><th>Primary Modules</th><th>Key Need</th></tr>
+                <tr><td>Estimator</td><td>Quotes, Variations</td><td>Fast quote creation, cost centre templates</td></tr>
+                <tr><td>Project Manager</td><td>Jobs, Variations, Day Sheets</td><td>Job oversight, variation tracking</td></tr>
+                <tr><td>Site Supervisor</td><td>Day Sheets, Timesheets, QA</td><td>Mobile capture, client sign-offs</td></tr>
+                <tr><td>Accounts</td><td>Billing, Suppliers</td><td>Invoicing, claims, reconciliation</td></tr>
+                <tr><td>Admin/Director</td><td>Onboarding, Users, Settings</td><td>Setup, dashboards, forecasting</td></tr>
+            </table>
+
+            <h3>Solution Architecture</h3>
+            <div class="tech-card">
+                <h4>Key Differentiators (First Principles)</h4>
+                <table>
+                    <tr><th>Principle</th><th>Implementation</th></tr>
+                    <tr><td>One source of truth per job</td><td>All artifacts consolidated in job workspace</td></tr>
+                    <tr><td>Emails = Documents</td><td>Captured, classified, searchable alongside files</td></tr>
+                    <tr><td>AI classifies, humans verify</td><td>Folder purpose metadata guides intelligent routing</td></tr>
+                    <tr><td>Customer owns their data</td><td>OneDrive overlay, not a data silo</td></tr>
+                    <tr><td>Every record is traceable</td><td>Links back to original source</td></tr>
+                </table>
+            </div>
+
+            <h3>14 Platform Modules</h3>
+            <div class="module-grid">
+                <div class="module-card">
+                    <h4>01 Company Onboarding</h4>
+                    <p>Guided wizard: 8 steps, < 10 minutes. Connect OneDrive, configure folders, create users, define cost categories.</p>
+                </div>
+                <div class="module-card">
+                    <h4>02 Jobs Hub</h4>
+                    <p>Card-based dashboard with configurable layout. P&L, Labour, Variations, Invoices, Day Sheets, AI Insights at a glance.</p>
+                </div>
+                <div class="module-card">
+                    <h4>03 Files & Email</h4>
+                    <p>Unified workspace where files and emails live together, are searchable in context, and are AI-classified into standard categories.</p>
+                </div>
+                <div class="module-card">
+                    <h4>04 Quotes & Tenders</h4>
+                    <p>Structured quote lifecycle from tender receipt through job conversion, with cost centre templates and AI-assisted import.</p>
+                </div>
+                <div class="module-card">
+                    <h4>05 Variations</h4>
+                    <p>Three distinct variation types: Scope Change, Do-and-Charge, Mini-Project. Systematic tracking to prevent revenue leaks.</p>
+                </div>
+                <div class="module-card">
+                    <h4>06 Day Sheets</h4>
+                    <p>T&M work capture via form input or Scan-to-Structure (Photo → OCR → AI extraction). Client signature required.</p>
+                </div>
+                <div class="module-card">
+                    <h4>07 Timesheets</h4>
+                    <p>Clock-in/out + submission + PM approval with GPS and break handling. Real-time labour cost tracking.</p>
+                </div>
+                <div class="module-card">
+                    <h4>08 Suppliers & POs</h4>
+                    <p>Simple PO flow: create → send → acknowledge → deliver → match bill → close. Track purchasing to prevent cost overruns.</p>
+                </div>
+                <div class="module-card">
+                    <h4>09 Billing & Invoicing</h4>
+                    <p>Generate claims/invoices with evidence, track through approval to payment. Progress claims with retention handling.</p>
+                </div>
+                <div class="module-card">
+                    <h4>10 BI & Reporting</h4>
+                    <p>Real-time budget vs actual at job, variation, and category level. Unified profitability view.</p>
+                </div>
+                <div class="module-card">
+                    <h4>11 QA & Compliance</h4>
+                    <p>Checklists/inspections per job & area with pass/fail, photos, signatures. Strong evidence at handover.</p>
+                </div>
+                <div class="module-card">
+                    <h4>12 Tickets & Licenses</h4>
+                    <p>Track worker tickets/inductions with OCR capture, expiry monitoring. Safety compliance.</p>
+                </div>
+                <div class="module-card">
+                    <h4>13 AI & Automation</h4>
+                    <p>Email Classification, File Classification, Smart Search, OCR, Contract Analysis, Quote Reader, Predictive Analytics.</p>
+                </div>
+                <div class="module-card">
+                    <h4>14 Integrations</h4>
+                    <p>OneDrive (Graph), Outlook (Graph), Xero, Simpro import. Minimal, secure connections to customer systems.</p>
+                </div>
+            </div>
+
+            <h3>Technical Uncertainty Areas (R&D Focus)</h3>
+            <div class="tech-card">
+                <h4>5.1 AI Classification Engine</h4>
+                <p><strong>Uncertainty:</strong> Can AI reliably classify construction-industry emails and documents into the correct job and category with sufficient accuracy (>85%) to enable auto-assignment?</p>
+                <p><strong>Unknown Outcomes:</strong> Optimal confidence thresholds, learning rate from user corrections, cross-company model transferability.</p>
+            </div>
+            <div class="tech-card">
+                <h4>5.2 OCR + AI Data Extraction</h4>
+                <p><strong>Uncertainty:</strong> Can we reliably extract structured data from paper day sheets (worker names, hours, materials, signatures) using OCR + LLM parsing?</p>
+                <p><strong>Unknown Outcomes:</strong> Error rates across different handwriting styles, validation workflows for low-confidence extraction, photo quality requirements.</p>
+            </div>
+            <div class="tech-card">
+                <h4>5.3 Contract Analysis Agent</h4>
+                <p><strong>Uncertainty:</strong> Can AI reliably extract key terms and identify risks from construction contracts with varying formats and legal complexity?</p>
+                <p><strong>Extraction Targets:</strong> Contract value, payment terms, scope summary, key dates, retention terms, insurance requirements, liquidated damages, variation process, dispute resolution.</p>
+            </div>
+            <div class="tech-card">
+                <h4>5.4 Quote Ingestor (DeepSeek)</h4>
+                <p><strong>Uncertainty:</strong> Can AI parse diverse Excel/PDF quote formats and reliably map to Quotech's CostItem schema?</p>
+                <p><strong>Column Mapping Challenges:</strong> Variable header naming ("Qty" vs "Quantity" vs "Units"), category inference from descriptions, handling multi-level section structures.</p>
+            </div>
+            <div class="tech-card">
+                <h4>5.5 Real-Time Financial Calculations</h4>
+                <p><strong>Uncertainty:</strong> Can we compute job profitability, budget vs actual, and forecasts in real-time across large datasets while maintaining <2 second response times?</p>
+            </div>
+
+            <h3>Technology Stack</h3>
+            <table>
+                <tr><th>Layer</th><th>Technologies</th></tr>
+                <tr><td>Frontend</td><td>React 19, Vite 6, Redux Toolkit, Tailwind CSS, Radix UI, ApexCharts, FullCalendar</td></tr>
+                <tr><td>AI/ML</td><td>DeepSeek (structured), GPT-4 (reasoning), Claude (docs), Google Vision / AWS Textract (OCR), Elasticsearch / Pinecone (search)</td></tr>
+                <tr><td>Backend</td><td>Python, PostgreSQL, Neo4j (graph), ChromaDB (vector), Redis (caching)</td></tr>
+                <tr><td>Infrastructure</td><td>AWS EC2, S3, Docker</td></tr>
+                <tr><td>Integrations</td><td>Microsoft Graph (OneDrive, Outlook), Xero API</td></tr>
+            </table>
+
+            <h3>Product Roadmap</h3>
+            <table>
+                <tr><th>Phase</th><th>Focus</th><th>Key Deliverables</th></tr>
+                <tr><td>V1.0 — Foundation</td><td>Information Consolidation</td><td>OneDrive, Email Ingestion, Jobs Hub, Basic BI</td></tr>
+                <tr><td>V2.0 — Automation</td><td>Automation Layer</td><td>Day Sheet OCR, Timesheet App, Ticket OCR</td></tr>
+                <tr><td>V3.0 — Intelligence</td><td>Intelligence</td><td>Quote Builder, Contract Analysis, Forecasting, NL Queries</td></tr>
+            </table>
+
+            <h3>Success Metrics</h3>
+            <table>
+                <tr><th>Metric</th><th>Target</th><th>Why</th></tr>
+                <tr><td>Time to find document</td><td>< 30 seconds</td><td>Information accessibility</td></tr>
+                <tr><td>Day sheet capture time</td><td>< 2 minutes</td><td>Field efficiency</td></tr>
+                <tr><td>Missed variations</td><td>Near zero</td><td>Revenue protection</td></tr>
+                <tr><td>Invoice turnaround</td><td>< 48 hours</td><td>Cash flow</td></tr>
+                <tr><td>User adoption</td><td>> 80% DAU</td><td>Platform stickiness</td></tr>
+                <tr><td>Quote turnaround</td><td>< 5 days</td><td>Sales velocity</td></tr>
+                <tr><td>DSO (Days Sales Outstanding)</td><td>< 45 days</td><td>Collection efficiency</td></tr>
+                <tr><td>Job margin accuracy</td><td>± 5%</td><td>Financial control</td></tr>
+            </table>
+
+            <h3>DREAM Research AI Foundations</h3>
+            <div class="info-box">
+                <p>The context engine is inspired by DREAM (Dynamic Reasoning and Episodic Adaptive Memory) research, exploring:</p>
+                <ul style="margin-top: 0.5rem;">
+                    <li><strong>Episodic Memory</strong> — Storing contextual snapshots of document interactions</li>
+                    <li><strong>Semantic Memory</strong> — Graph-based knowledge representation of document relationships</li>
+                    <li><strong>Neuroplasticity</strong> — Usage-driven edge weighting that adapts retrieval paths over time</li>
+                    <li><strong>Micro-agent Orchestration</strong> — Specialised agents for classification, extraction, and reasoning</li>
+                </ul>
             </div>
         </section>
 
+        <!-- ========================================== -->
         <!-- ALL FILES SECTION -->
+        <!-- ========================================== -->
         <section id="files" class="section">
             <h2>📁 All Project Files</h2>
             <p>Click any file to download from S3. All files are stored in AWS S3 and available for download.</p>
@@ -304,157 +981,141 @@
             <div class="folder-header">📄 Root Files</div>
             <table>
                 <tr><th>File</th><th>Description</th><th>Download</th></tr>
-                <tr class="file-row"><td>README.md</td><td>Project overview and structure</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/README.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>rdti-fy25-application.html</td><td>This application page</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/rdti-fy25-application.html" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>v1 Whitepaper Information DC M Quotech.pdf</td><td>Complete Quotech whitepaper</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/v1%20Whitepaper%20Information%20DC%20M%20Quotech.pdf" class="download-btn pdf" target="_blank">📄 PDF</a></td></tr>
+                <tr><td>README.md</td><td>Project overview and structure</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/README.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>rdti-fy25-application.html</td><td>This application page</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/rdti-fy25-application.html" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>v1 Whitepaper Information DC M Quotech.pdf</td><td>Complete Quotech whitepaper</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/v1%20Whitepaper%20Information%20DC%20M%20Quotech.pdf" class="download-btn pdf" target="_blank">📄 PDF</a></td></tr>
             </table>
 
             <!-- 01-PROJECT-DOCUMENTATION -->
             <div class="folder-header">📂 01-project-documentation/</div>
             <table>
                 <tr><th>File</th><th>Description</th><th>Download</th></tr>
-                <tr class="file-row"><td>quotech-ai-driven-labor-efficiency.md</td><td>Main project documentation - 5 AI modules</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/01-project-documentation/quotech-ai-driven-labor-efficiency.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>compliance-tracker.md</td><td>RDTI compliance tracking status</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/01-project-documentation/compliance-tracker.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>README.md</td><td>Folder documentation</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/01-project-documentation/README.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>quotech-ai-driven-labor-efficiency.md</td><td>Main project documentation - 5 AI modules</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/01-project-documentation/quotech-ai-driven-labor-efficiency.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>compliance-tracker.md</td><td>RDTI compliance tracking status</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/01-project-documentation/compliance-tracker.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>README.md</td><td>Folder documentation</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/01-project-documentation/README.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
             </table>
 
             <!-- 02-EVIDENCE -->
             <div class="folder-header">📂 02-evidence/</div>
             <table>
                 <tr><th>File</th><th>Description</th><th>Download</th></tr>
-                <tr class="file-row"><td>EVIDENCE-INDEX-FY25.md</td><td>Master evidence index with cross-reference matrix</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/EVIDENCE-INDEX-FY25.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>README.md</td><td>Evidence folder documentation</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/README.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>EVIDENCE-INDEX-FY25.md</td><td>Master evidence index with cross-reference matrix</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/EVIDENCE-INDEX-FY25.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>README.md</td><td>Evidence folder documentation</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/README.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
             </table>
 
-            <h3 style="margin-left: 1rem; color: var(--secondary);">📂 02-evidence/financial/</h3>
+            <h4 style="margin-left: 1rem; color: var(--secondary);">📂 02-evidence/financial/</h4>
             <table>
                 <tr><th>File</th><th>Description</th><th>Download</th></tr>
-                <tr class="file-row"><td>xero-rdti-accounts-evidence.md</td><td>Chart of accounts, P&L verification</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/financial/xero-rdti-accounts-evidence.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>fy25-rdti-cost-summary.md</td><td>R&D cost breakdown by category</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/financial/fy25-rdti-cost-summary.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>xero-rdti-accounts-evidence.md</td><td>Chart of accounts, P&L verification</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/financial/xero-rdti-accounts-evidence.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>fy25-rdti-cost-summary.md</td><td>R&D cost breakdown by category</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/financial/fy25-rdti-cost-summary.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
             </table>
 
-            <h3 style="margin-left: 1rem; color: var(--secondary);">📂 02-evidence/research-notes/</h3>
+            <h4 style="margin-left: 1rem; color: var(--secondary);">📂 02-evidence/research-notes/</h4>
             <table>
                 <tr><th>File</th><th>Description</th><th>Download</th></tr>
-                <tr class="file-row"><td>FY25-Research-Journal.md</td><td>Weekly R&D activity log - Q1-Q4</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/research-notes/FY25-Research-Journal.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>FY25-Existing-Knowledge-Search.md</td><td>Literature review, commercial analysis</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/research-notes/FY25-Existing-Knowledge-Search.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>FY25-Research-Journal.md</td><td>Weekly R&D activity log - Q1-Q4</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/research-notes/FY25-Research-Journal.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>FY25-Existing-Knowledge-Search.md</td><td>Literature review, commercial analysis</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/research-notes/FY25-Existing-Knowledge-Search.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
             </table>
 
-            <h3 style="margin-left: 1rem; color: var(--secondary);">📂 02-evidence/technical/</h3>
+            <h4 style="margin-left: 1rem; color: var(--secondary);">📂 02-evidence/technical/</h4>
             <table>
                 <tr><th>File</th><th>Description</th><th>Download</th></tr>
-                <tr class="file-row"><td>dream-research-ai-foundations.md</td><td>DREAM AI research - neuroplasticity, context networks</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/technical/dream-research-ai-foundations.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>quotech-comprehensive-project-context.md</td><td>Complete technical context - 14 modules</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/technical/quotech-comprehensive-project-context.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>gitlab-repository-evidence.md</td><td>Code repository evidence</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/technical/gitlab-repository-evidence.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>notion-research-documentation.md</td><td>Notion workspace research documentation</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/technical/notion-research-documentation.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>dream-research-ai-foundations.md</td><td>DREAM AI research - neuroplasticity, context networks</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/technical/dream-research-ai-foundations.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>quotech-comprehensive-project-context.md</td><td>Complete technical context - 14 modules</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/technical/quotech-comprehensive-project-context.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>gitlab-repository-evidence.md</td><td>Code repository evidence</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/technical/gitlab-repository-evidence.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>notion-research-documentation.md</td><td>Notion workspace research documentation</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/technical/notion-research-documentation.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
             </table>
 
-            <h3 style="margin-left: 1rem; color: var(--secondary);">📂 02-evidence/time-records/</h3>
+            <h4 style="margin-left: 1rem; color: var(--secondary);">📂 02-evidence/time-records/</h4>
             <table>
                 <tr><th>File</th><th>Description</th><th>Download</th></tr>
-                <tr class="file-row"><td>timesheet-summary-fy25.md</td><td>Employee R&D time allocation summary</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/time-records/timesheet-summary-fy25.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>timesheet-summary-fy25.md</td><td>Employee R&D time allocation summary</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/02-evidence/time-records/timesheet-summary-fy25.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
             </table>
 
             <!-- 03-FILING-DOCUMENTS -->
             <div class="folder-header">📂 03-filing-documents/</div>
             <table>
                 <tr><th>File</th><th>Description</th><th>Download</th></tr>
-                <tr class="file-row"><td>FY25-Core-Activities-Complete.md</td><td>Complete core activity descriptions</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/03-filing-documents/FY25-Core-Activities-Complete.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>FY25-RDTI-Application-Content.md</td><td>Application text for portal</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/03-filing-documents/FY25-RDTI-Application-Content.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>README.md</td><td>Filing documents guide</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/03-filing-documents/README.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>FY25-Core-Activities-Complete.md</td><td>Complete core activity descriptions</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/03-filing-documents/FY25-Core-Activities-Complete.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>FY25-RDTI-Application-Content.md</td><td>Application text for portal</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/03-filing-documents/FY25-RDTI-Application-Content.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>README.md</td><td>Filing documents guide</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/03-filing-documents/README.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
             </table>
 
             <!-- 04-SUPPORTING-MATERIALS -->
-            <div class="folder-header">📂 04-supporting-materials/</div>
+            <div class="folder-header">📂 04-supporting-materials/publications/</div>
             <table>
                 <tr><th>File</th><th>Description</th><th>Download</th></tr>
-                <tr class="file-row"><td>README.md</td><td>Supporting materials guide</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/04-supporting-materials/README.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-            </table>
-
-            <h3 style="margin-left: 1rem; color: var(--secondary);">📂 04-supporting-materials/publications/</h3>
-            <table>
-                <tr><th>File</th><th>Description</th><th>Download</th></tr>
-                <tr class="file-row"><td>monster-modules-whitepaper-summary.md</td><td>Monster modules whitepaper summary</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/04-supporting-materials/publications/monster-modules-whitepaper-summary.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>previous-rdti-filings-analysis.md</td><td>Analysis of FY23/FY24 filings</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/04-supporting-materials/publications/previous-rdti-filings-analysis.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>monster-modules-whitepaper-summary.md</td><td>Monster modules whitepaper summary</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/04-supporting-materials/publications/monster-modules-whitepaper-summary.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>previous-rdti-filings-analysis.md</td><td>Analysis of FY23/FY24 filings</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/04-supporting-materials/publications/previous-rdti-filings-analysis.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
             </table>
 
             <!-- 05-TEMPLATES -->
             <div class="folder-header">📂 05-templates/</div>
             <table>
                 <tr><th>File</th><th>Description</th><th>Download</th></tr>
-                <tr class="file-row"><td>cost-summary-template.md</td><td>Cost summary template</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/05-templates/cost-summary-template.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>evidence-index-template.md</td><td>Evidence index template</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/05-templates/evidence-index-template.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>filing-checklist.md</td><td>Filing checklist template</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/05-templates/filing-checklist.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>project-description-template.md</td><td>Project description template</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/05-templates/project-description-template.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>README.md</td><td>Templates guide</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/05-templates/README.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-            </table>
-
-            <!-- 06-ARCHIVE -->
-            <div class="folder-header">📂 06-archive/</div>
-            <table>
-                <tr><th>File</th><th>Description</th><th>Download</th></tr>
-                <tr class="file-row"><td>README.md</td><td>Archive documentation</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/06-archive/README.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>cost-summary-template.md</td><td>Cost summary template</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/05-templates/cost-summary-template.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>evidence-index-template.md</td><td>Evidence index template</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/05-templates/evidence-index-template.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>filing-checklist.md</td><td>Filing checklist template</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/05-templates/filing-checklist.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>project-description-template.md</td><td>Project description template</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/05-templates/project-description-template.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
             </table>
 
             <!-- INFO_FILES -->
             <div class="folder-header">📂 Info_Files/</div>
             <table>
                 <tr><th>File</th><th>Description</th><th>Download</th></tr>
-                <tr class="file-row"><td>FY25 BRAVADA R&D Working FY 24-25.xlsx</td><td>R&D working spreadsheet with timesheets</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/Info_Files/FY25%20BRAVADA%20R%26D%20Working%20FY%2024-25.xlsx" class="download-btn xlsx" target="_blank">📊 Excel</a></td></tr>
-                <tr class="file-row"><td>rdti-filing-summary-screenshot.png</td><td>Filing summary screenshot</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/Info_Files/rdti-filing-summary-screenshot.png" class="download-btn png" target="_blank">🖼️ Image</a></td></tr>
-                <tr class="file-row"><td>README.md</td><td>Info files documentation</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/Info_Files/README.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>FY25 BRAVADA R&D Working FY 24-25.xlsx</td><td>R&D working spreadsheet with timesheets</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/Info_Files/FY25%20BRAVADA%20R%26D%20Working%20FY%2024-25.xlsx" class="download-btn xlsx" target="_blank">📊 Excel</a></td></tr>
+                <tr><td>rdti-filing-summary-screenshot.png</td><td>Filing summary screenshot</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/Info_Files/rdti-filing-summary-screenshot.png" class="download-btn png" target="_blank">🖼️ Image</a></td></tr>
             </table>
 
             <!-- PREVIOUS_APPLICATIONS -->
             <div class="folder-header">📂 previous_applications/</div>
             <table>
                 <tr><th>File</th><th>Description</th><th>Download</th></tr>
-                <tr class="file-row"><td>FY23 RDTI.pdf</td><td>FY23 RDTI Application</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/previous_applications/FY23%20RDTI.pdf" class="download-btn pdf" target="_blank">📄 PDF</a></td></tr>
-                <tr class="file-row"><td>FY24 RDTI.pdf</td><td>FY24 RDTI Application</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/previous_applications/FY24%20RDTI.pdf" class="download-btn pdf" target="_blank">📄 PDF</a></td></tr>
+                <tr><td>FY23 RDTI.pdf</td><td>FY23 RDTI Application</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/previous_applications/FY23%20RDTI.pdf" class="download-btn pdf" target="_blank">📄 PDF</a></td></tr>
+                <tr><td>FY24 RDTI.pdf</td><td>FY24 RDTI Application</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/previous_applications/FY24%20RDTI.pdf" class="download-btn pdf" target="_blank">📄 PDF</a></td></tr>
             </table>
 
             <!-- DOCS -->
             <div class="folder-header">📂 docs/ - Quotech Feature Specifications</div>
             
-            <h3 style="margin-left: 1rem; color: var(--secondary);">📂 docs/00_overview/</h3>
+            <h4 style="margin-left: 1rem; color: var(--secondary);">📂 docs/00_overview/</h4>
             <table>
                 <tr><th>File</th><th>Description</th><th>Download</th></tr>
-                <tr class="file-row"><td>INDEX.md</td><td>Documentation index</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/00_overview/INDEX.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>PRODUCT_VISION.md</td><td>Product vision document</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/00_overview/PRODUCT_VISION.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>DATA_MODEL.md</td><td>Data model documentation</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/00_overview/DATA_MODEL.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>CURRENT_STATE_FLOWS.md</td><td>Current state user flows</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/00_overview/CURRENT_STATE_FLOWS.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>CURRENT_STATE_MAPPING.md</td><td>Current state UI mapping</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/00_overview/CURRENT_STATE_MAPPING.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>INDEX.md</td><td>Documentation index</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/00_overview/INDEX.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>PRODUCT_VISION.md</td><td>Product vision document</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/00_overview/PRODUCT_VISION.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>DATA_MODEL.md</td><td>Data model documentation</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/00_overview/DATA_MODEL.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>CURRENT_STATE_FLOWS.md</td><td>Current state user flows</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/00_overview/CURRENT_STATE_FLOWS.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>CURRENT_STATE_MAPPING.md</td><td>Current state UI mapping</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/00_overview/CURRENT_STATE_MAPPING.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
             </table>
 
-            <h3 style="margin-left: 1rem; color: var(--secondary);">📂 docs/01-14 Feature Specs</h3>
+            <h4 style="margin-left: 1rem; color: var(--secondary);">📂 docs/01-14 Feature Specs</h4>
             <table>
                 <tr><th>Module</th><th>File</th><th>Download</th></tr>
-                <tr class="file-row"><td>01 Onboarding</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/01_onboarding/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>02 Jobs Hub</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/02_jobs_hub/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>03 Files & Email</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/03_files_and_email/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>04 Quotes & Tenders</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/04_quotes_and_tenders/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>05 Variations</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/05_variations/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>06 Day Sheets</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/06_day_sheets/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>07 Timesheets</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/07_timesheets/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>08 Suppliers & POs</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/08_suppliers_and_pos/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>09 Billing & Invoicing</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/09_billing_and_invoicing/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>10 BI & Reporting</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/10_bi_and_reporting/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>11 QA & Compliance</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/11_quality_and_compliance/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>12 Tickets & Licenses</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/12_tickets_and_licenses/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>13 AI & Automation</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/13_ai_and_automation/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>14 Integrations</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/14_integrations/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>01 Onboarding</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/01_onboarding/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>02 Jobs Hub</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/02_jobs_hub/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>03 Files & Email</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/03_files_and_email/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>04 Quotes & Tenders</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/04_quotes_and_tenders/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>05 Variations</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/05_variations/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>06 Day Sheets</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/06_day_sheets/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>07 Timesheets</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/07_timesheets/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>08 Suppliers & POs</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/08_suppliers_and_pos/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>09 Billing & Invoicing</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/09_billing_and_invoicing/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>10 BI & Reporting</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/10_bi_and_reporting/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>11 QA & Compliance</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/11_quality_and_compliance/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>12 Tickets & Licenses</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/12_tickets_and_licenses/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>13 AI & Automation</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/13_ai_and_automation/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>14 Integrations</td><td>FEATURE_SPEC.md</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/14_integrations/FEATURE_SPEC.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
             </table>
 
-            <h3 style="margin-left: 1rem; color: var(--secondary);">📂 docs/user_flows/</h3>
+            <h4 style="margin-left: 1rem; color: var(--secondary);">📂 docs/user_flows/</h4>
             <table>
                 <tr><th>File</th><th>Description</th><th>Download</th></tr>
-                <tr class="file-row"><td>admin.md</td><td>Admin user flows</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/user_flows/admin.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>estimator.md</td><td>Estimator user flows</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/user_flows/estimator.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>project_manager.md</td><td>Project manager user flows</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/user_flows/project_manager.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>site_supervisor.md</td><td>Site supervisor user flows</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/user_flows/site_supervisor.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
-                <tr class="file-row"><td>accounts.md</td><td>Accounts user flows</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/user_flows/accounts.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>admin.md</td><td>Admin user flows</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/user_flows/admin.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>estimator.md</td><td>Estimator user flows</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/user_flows/estimator.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>project_manager.md</td><td>Project manager user flows</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/user_flows/project_manager.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>site_supervisor.md</td><td>Site supervisor user flows</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/user_flows/site_supervisor.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
+                <tr><td>accounts.md</td><td>Accounts user flows</td><td><a href="https://bravada-rdti-fy25-58167664815.s3.ap-southeast-2.amazonaws.com/docs/user_flows/accounts.md" class="download-btn" target="_blank">⬇️ Open</a></td></tr>
             </table>
-
         </section>
     </div>
 
